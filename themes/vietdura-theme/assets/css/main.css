@@ -158,6 +158,14 @@ a {
     transform: translateY(-1px);
 }
 
+.header-cta--menu {
+    display: none;
+}
+
+.header-actions {
+    display: contents;
+}
+
 /* ─── Burger Button ──────────────────────────────────────── */
 
 .burger-btn {
@@ -203,10 +211,6 @@ a {
 
 .burger-btn.is-open span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
-}
-
-.header-cta--mobile {
-    display: none;
 }
 
 /* ─── Hero ───────────────────────────────────────────────── */
@@ -1268,7 +1272,6 @@ a {
 
     .burger-btn {
         display: flex;
-        order: 3;
         flex-shrink: 0;
     }
 
@@ -1276,13 +1279,13 @@ a {
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
+        justify-content: space-between;
         gap: 8px;
         min-height: 60px;
         padding: 0;
     }
 
     .site-branding {
-        order: 1;
         flex-shrink: 0;
         flex-grow: 0;
     }
@@ -1291,20 +1294,43 @@ a {
         display: none;
     }
 
-    .header-cta--mobile {
+    .header-cta--menu {
         display: inline-flex;
         align-items: center;
-        order: 2;
-        flex-grow: 0;
-        flex-shrink: 0;
-        width: auto;
-        max-width: 160px;
-        padding: 7px 14px;
-        font-size: 0.8rem;
-        min-height: unset;
-        height: 36px;
-        white-space: nowrap;
+        justify-content: center;
+        margin-top: 20px;
+        width: 100%;
+        padding: 12px 22px;
+        border-radius: 999px;
+        background: var(--color-terracotta);
+        color: var(--color-white);
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+    }
+
+    .vd-cart-btn {
         margin-left: auto;
+        padding: 0;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+    }
+
+    .vd-cart-btn svg {
+        flex-shrink: 0;
+    }
+
+    .vd-cart-btn .vd-cart-badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
     }
 
     .main-navigation {
@@ -1348,13 +1374,6 @@ a {
         display: block;
         padding: 14px 4px;
         font-size: 1rem;
-    }
-
-    .header-cta--mobile {
-        display: inline-flex;
-        margin-top: 20px;
-        width: 100%;
-        justify-content: center;
     }
 }
 

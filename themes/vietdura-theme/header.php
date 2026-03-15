@@ -19,15 +19,6 @@
                  height="42">
         </a>
 
-        <?php $reservierung_url = get_option( 'vd_reservierung_url', '#' ); ?>
-        <a href="<?php echo esc_url( $reservierung_url ); ?>" class="header-cta header-cta--mobile">Reservation</a>
-
-        <button class="burger-btn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav-list">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
         <nav class="main-navigation" id="main-nav-list" aria-label="Hauptnavigation">
             <?php
             wp_nav_menu( [
@@ -38,6 +29,8 @@
                 'fallback_cb'    => false,
             ] );
             ?>
+            <?php $reservierung_url = get_option( 'vd_reservierung_url', '#' ); ?>
+            <a href="<?php echo esc_url( $reservierung_url ); ?>" class="header-cta header-cta--menu">Reservation</a>
         </nav>
 
         <?php $reservierung_url = get_option( 'vd_reservierung_url', '#' ); ?>
@@ -49,6 +42,12 @@
                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
             </svg>
             <span class="vd-cart-badge" aria-live="polite">0</span>
+        </button>
+
+        <button class="burger-btn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav-list">
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
     </div>
 </header>

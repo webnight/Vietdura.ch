@@ -1,0 +1,14 @@
+# Uploads (Bilder/Medien - zu groß für Git)
+uploads/
+
+# Backups
+ai1wm-backups/
+
+# Cache & temp files
+upgrade/
+*.log
+.DS_Store
+Thumbs.db
+
+# Node modules (falls vorhanden)
+node_modules/

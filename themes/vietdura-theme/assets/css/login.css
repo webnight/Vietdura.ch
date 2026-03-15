@@ -1,0 +1,195 @@
+/* VietDura – Custom WP Login Styles */
+
+:root {
+    --color-green:      #2f6b55;
+    --color-green-dark: #1f4d3a;
+    --color-terracotta: #b35c3d;
+    --color-cream:      #f7f3ec;
+    --color-gold:       #c9a24a;
+    --color-text:       #1f2933;
+    --color-white:      #ffffff;
+    --font-heading:     'Cormorant Garamond', Georgia, serif;
+    --font-body:        'Inter', Arial, sans-serif;
+}
+
+/* ── Page background ── */
+body.login {
+    background: var(--color-cream);
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+body.login #login {
+    width: 100%;
+    max-width: 380px;
+}
+
+/* ── Logo ── */
+#login h1 a,
+.login h1 a {
+    background-image: none !important;
+    background-color: transparent !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    display: block !important;
+    text-indent: 0 !important;
+    overflow: visible !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    font-family: var(--font-heading) !important;
+    font-size: 2.6rem !important;
+    font-weight: 700 !important;
+    color: var(--color-green-dark) !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1 !important;
+    text-align: center !important;
+}
+
+/* Link-Text (z.B. "vietdura.ch") verstecken, nur ::before anzeigen */
+#login h1 a,
+.login h1 a {
+    font-size: 0 !important;
+}
+
+/* VietDura Schriftzug */
+#login h1 a::before,
+.login h1 a::before {
+    content: 'VietDura';
+    display: block;
+    font-size: 2.6rem;
+}
+
+/* ── Login wrapper mit grünem Rahmen ── */
+#login {
+    background: var(--color-green-dark);
+    border-radius: 22px;
+    padding: 28px 24px 20px;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.35);
+}
+
+/* ── Login form card ── */
+#loginform,
+#lostpasswordform,
+#registerform {
+    background: var(--color-white);
+    border: none;
+    border-radius: 12px;
+    box-shadow: none;
+    padding: 28px 32px;
+    margin-top: 0 !important;
+}
+
+/* ── Labels ── */
+.login label {
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ── Inputs ── */
+.login input[type="text"],
+.login input[type="password"],
+.login input[type="email"] {
+    border: 1.5px solid rgba(47, 107, 85, 0.25);
+    border-radius: 8px;
+    background: var(--color-cream);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: none;
+}
+
+.login input[type="text"]:focus,
+.login input[type="password"]:focus,
+.login input[type="email"]:focus {
+    border-color: var(--color-green);
+    box-shadow: 0 0 0 3px rgba(47, 107, 85, 0.12);
+    outline: none;
+    background: var(--color-white);
+}
+
+/* ── Submit button ── */
+.login .button-primary,
+#wp-submit {
+    background: var(--color-terracotta) !important;
+    border-color: var(--color-terracotta) !important;
+    border-radius: 8px !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+    padding: 10px 24px !important;
+    height: auto !important;
+    box-shadow: 0 4px 14px rgba(179, 92, 61, 0.3) !important;
+    transition: background 0.2s, box-shadow 0.2s !important;
+}
+
+.login .button-primary:hover,
+#wp-submit:hover {
+    background: #9e4e31 !important;
+    border-color: #9e4e31 !important;
+    box-shadow: 0 6px 20px rgba(179, 92, 61, 0.4) !important;
+}
+
+/* ── "Angemeldet bleiben" checkbox ── */
+.login .forgetmenot label {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.875rem;
+    color: #5a6472;
+}
+
+/* ── Links ── */
+.login #nav a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.login #nav a:hover {
+    color: var(--color-gold);
+    text-decoration: underline;
+}
+
+.login #nav {
+    text-align: center;
+    padding-top: 4px;
+}
+
+/* "← Zu vietdura.ch" verstecken */
+#backtoblog {
+    display: none !important;
+}
+
+/* ── Error / notice messages ── */
+.login .message,
+.login .success {
+    border-left-color: var(--color-green);
+    background: rgba(47, 107, 85, 0.06);
+    color: var(--color-green-dark);
+}
+
+#login_error {
+    border-left-color: var(--color-terracotta) !important;
+    background: rgba(179, 92, 61, 0.07) !important;
+    color: #7a3320 !important;
+}
+
+/* ── Language switcher ── */
+.language-switcher select {
+    border-radius: 6px;
+    border-color: rgba(47, 107, 85, 0.25);
+    font-family: var(--font-body);
+}

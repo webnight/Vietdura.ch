@@ -1,0 +1,887 @@
+/* ─── VietDura Admin CSS ─────────────────────────────────────────────────── */
+
+:root {
+    --vd-green:      #2f6b55;
+    --vd-green-dark: #1f4d3a;
+    --vd-terra:      #b35c3d;
+    --vd-gold:       #c9a24a;
+    --vd-cream:      #f7f3ec;
+    --vd-white:      #ffffff;
+    --vd-text:       #1f2933;
+    --vd-muted:      #6b7c88;
+    --vd-border:     rgba(31, 77, 58, 0.1);
+    --vd-shadow:     0 2px 12px rgba(31, 41, 51, 0.07);
+    --vd-radius:     14px;
+}
+
+/* ─── Global Admin Overrides ─────────────────────────────────────────────── */
+
+#wpcontent,
+#wpbody-content {
+    background: #f0ede8;
+}
+
+#wpbody-content .wrap {
+    margin-top: 0;
+}
+
+/* Dashboard-Seite: Padding und Wrapper anpassen */
+.dashboard #wpbody-content {
+    padding-right: 0;
+}
+
+.dashboard #wpbody {
+    padding-top: 0;
+}
+
+.dashboard #wpbody-content > .wrap {
+    margin: 0;
+    padding: 0 20px;
+}
+
+.dashboard h1.screen-reader-text {
+    display: none;
+}
+
+/* ─── Admin Menu ─────────────────────────────────────────────────────────── */
+
+#adminmenu {
+    background: var(--vd-green-dark) !important;
+    padding-top: 8px;
+    width: 220px !important;
+    overflow: visible !important;
+}
+
+#adminmenu .wp-menu-name {
+    padding-left: 0 !important;
+}
+
+#adminmenu a,
+#adminmenu .wp-menu-name {
+    color: rgba(255,255,255,0.75) !important;
+    font-size: 13px;
+}
+
+#adminmenu li.menu-top:hover > a,
+#adminmenu li.menu-top:hover .wp-menu-name,
+#adminmenu li.current > a,
+#adminmenu li.current .wp-menu-name {
+    color: #ffffff !important;
+}
+
+#adminmenu li.menu-top > a {
+    border-radius: 10px;
+    margin: 1px 8px;
+    padding: 8px 10px !important;
+}
+
+#adminmenu li.current > a,
+#adminmenu li.wp-has-current-submenu > a {
+    background: var(--vd-green) !important;
+    color: #fff !important;
+}
+
+#adminmenu li.menu-top:hover > a {
+    background: rgba(255,255,255,0.08) !important;
+}
+
+#adminmenu .wp-submenu,
+#adminmenu .wp-submenu-wrap {
+    background: #1a3d2c !important;
+    border-radius: 8px !important;
+    width: 220px !important;
+    min-width: 220px !important;
+}
+
+#adminmenu .wp-submenu a {
+    color: rgba(255,255,255,0.85) !important;
+    padding: 7px 14px !important;
+}
+
+#adminmenu .wp-submenu a:hover,
+#adminmenu .wp-submenu li.current a {
+    color: #fff !important;
+    background: rgba(255,255,255,0.1) !important;
+}
+
+#adminmenu .wp-menu-image:before {
+    color: rgba(255,255,255,0.5) !important;
+}
+
+#adminmenu li.current .wp-menu-image:before,
+#adminmenu li.wp-has-current-submenu .wp-menu-image:before {
+    color: #fff !important;
+}
+
+#adminmenu #collapse-menu,
+#adminmenu #collapse-button {
+    color: rgba(255,255,255,0.4) !important;
+}
+
+#adminmenuback,
+#adminmenuwrap {
+    background: var(--vd-green-dark) !important;
+    width: 220px !important;
+    overflow: visible !important;
+}
+
+/* Sidebar breiter + Content-Bereich anpassen */
+#adminmenuwrap,
+#adminmenuback {
+    width: 220px !important;
+}
+
+#wpcontent,
+#wpfooter {
+    margin-left: 220px !important;
+}
+
+#adminmenu .wp-menu-name {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    padding-right: 10px !important;
+}
+
+#adminmenu li.menu-top > a {
+    padding: 13px 12px !important;
+}
+
+#adminmenu .wp-menu-image:before {
+    font-size: 18px !important;
+    width: 36px !important;
+}
+
+#adminmenu .wp-submenu a {
+    font-size: 13.5px !important;
+    padding: 10px 16px 10px 44px !important;
+}
+
+/* ─── Admin Bar Logo ─────────────────────────────────────────────────────── */
+
+#wpadminbar #wp-admin-bar-vd-logo > .ab-item {
+    padding: 0 12px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+#wpadminbar #wp-admin-bar-vd-logo > .ab-item:hover {
+    background: transparent !important;
+}
+
+/* ─── Admin Header Bar ───────────────────────────────────────────────────── */
+
+#wpadminbar {
+    background: var(--vd-green-dark) !important;
+}
+
+#wpadminbar .ab-top-menu > li > .ab-item,
+#wpadminbar .ab-top-menu > li.hover > .ab-item {
+    color: rgba(255,255,255,0.8) !important;
+}
+
+#wpadminbar .ab-top-menu > li:hover > .ab-item {
+    background: rgba(255,255,255,0.08) !important;
+    color: #fff !important;
+}
+
+/* ─── Dashboard: Widget auf volle Breite ────────────────────────────────── */
+
+/* Alle Spalten-Container auf volle Breite */
+#dashboard-widgets-wrap,
+#dashboard-widgets,
+#postbox-container-1,
+#postbox-container-2 {
+    width: 100% !important;
+    float: none !important;
+    min-width: 0 !important;
+}
+
+/* Sortable-Wrapper volle Breite */
+.meta-box-sortables {
+    min-width: 0 !important;
+}
+
+/* Unser Widget: Box-Chrome entfernen */
+#vietdura_dashboard {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    margin: 0 !important;
+}
+
+#vietdura_dashboard .postbox-header {
+    display: none !important;
+}
+
+#vietdura_dashboard .inside {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ─── Dashboard Layout ───────────────────────────────────────────────────── */
+
+.vd-dashboard {
+    padding: 20px 0 40px;
+    width: 100%;
+}
+
+/* Welcome Banner */
+.vd-welcome {
+    background: linear-gradient(130deg, var(--vd-green-dark) 0%, var(--vd-green) 100%);
+    border-radius: var(--vd-radius);
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 24px rgba(31, 77, 58, 0.22);
+}
+
+.vd-welcome-text h1 {
+    font-family: Georgia, serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 8px;
+    line-height: 1.2;
+}
+
+.vd-welcome-text p {
+    color: rgba(255,255,255,0.78);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.vd-welcome-badge {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 999px;
+    padding: 10px 20px;
+    color: var(--vd-gold);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Stats Row */
+.vd-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.vd-stat-card {
+    background: var(--vd-white);
+    border-radius: var(--vd-radius);
+    padding: 24px 26px;
+    box-shadow: var(--vd-shadow);
+    border: 1px solid var(--vd-border);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vd-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(31, 41, 51, 0.11);
+}
+
+.vd-stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.vd-stat-icon--green   { background: rgba(47, 107, 85, 0.1); }
+.vd-stat-icon--terra   { background: rgba(179, 92, 61, 0.1); }
+.vd-stat-icon--gold    { background: rgba(201, 162, 74, 0.1); }
+
+.vd-stat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.vd-stat-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--vd-text);
+    line-height: 1;
+}
+
+.vd-stat-label {
+    font-size: 0.8rem;
+    color: var(--vd-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* Two Column Grid */
+.vd-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Cards */
+.vd-card {
+    background: var(--vd-white);
+    border-radius: var(--vd-radius);
+    box-shadow: var(--vd-shadow);
+    border: 1px solid var(--vd-border);
+    overflow: hidden;
+}
+
+.vd-card-header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--vd-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vd-card-header h2 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--vd-text);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.vd-card-header a {
+    font-size: 0.78rem;
+    color: var(--vd-green);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.vd-card-header a:hover {
+    color: var(--vd-green-dark);
+}
+
+.vd-card-body {
+    padding: 20px 24px;
+}
+
+/* Reservation List */
+.vd-reservation-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.vd-reservation-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(31, 77, 58, 0.06);
+}
+
+.vd-reservation-list li:last-child {
+    border-bottom: none;
+}
+
+.vd-reservation-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--vd-green);
+    flex-shrink: 0;
+}
+
+.vd-reservation-info {
+    flex: 1;
+    font-size: 0.88rem;
+    color: var(--vd-text);
+    font-weight: 500;
+}
+
+.vd-reservation-meta {
+    font-size: 0.78rem;
+    color: var(--vd-muted);
+}
+
+.vd-empty-state {
+    text-align: center;
+    padding: 28px 0;
+    color: var(--vd-muted);
+    font-size: 0.88rem;
+}
+
+.vd-empty-state span {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+/* Quick Actions */
+.vd-actions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.vd-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+}
+
+.vd-action-btn--primary {
+    background: var(--vd-green);
+    color: #fff;
+}
+
+.vd-action-btn--primary:hover {
+    background: var(--vd-green-dark);
+    color: #fff;
+}
+
+.vd-action-btn--secondary {
+    background: rgba(47, 107, 85, 0.06);
+    color: var(--vd-green-dark);
+    border-color: rgba(47, 107, 85, 0.12);
+}
+
+.vd-action-btn--secondary:hover {
+    background: rgba(47, 107, 85, 0.1);
+    color: var(--vd-green-dark);
+}
+
+.vd-action-btn--terra {
+    background: rgba(179, 92, 61, 0.07);
+    color: var(--vd-terra);
+    border-color: rgba(179, 92, 61, 0.14);
+}
+
+.vd-action-btn--terra:hover {
+    background: rgba(179, 92, 61, 0.12);
+    color: var(--vd-terra);
+}
+
+.vd-action-icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* Tips Card */
+.vd-tips-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vd-tips-list li {
+    display: flex;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--vd-muted);
+    line-height: 1.5;
+}
+
+.vd-tips-list li::before {
+    content: '→';
+    color: var(--vd-gold);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ─── Inline Editing ─────────────────────────────────────────────────────── */
+
+.vd-inline-edit,
+.vd-title-edit {
+    cursor: text;
+    border-radius: 4px;
+    padding: 2px 4px;
+    margin: -2px -4px;
+    transition: background 0.15s;
+    display: inline-block;
+}
+
+.vd-inline-edit:hover,
+.vd-title-edit:hover,
+.vd-cat-edit:hover {
+    background: rgba(47, 107, 85, 0.08);
+    outline: 1.5px dashed rgba(47, 107, 85, 0.35);
+}
+
+.vd-cat-edit {
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 2px 4px;
+    margin: -2px -4px;
+    display: inline-block;
+    transition: background 0.15s;
+}
+
+/* ─── General List Table Improvements ───────────────────────────────────── */
+
+.wp-list-table {
+    border-radius: var(--vd-radius) !important;
+    box-shadow: var(--vd-shadow) !important;
+    border: 1px solid var(--vd-border) !important;
+}
+
+/* Rounded corners nur an Ecken der Tabelle */
+.wp-list-table thead tr:first-child th:first-child { border-top-left-radius: var(--vd-radius) !important; }
+.wp-list-table thead tr:first-child th:last-child  { border-top-right-radius: var(--vd-radius) !important; }
+.wp-list-table tbody tr:last-child td:first-child  { border-bottom-left-radius: var(--vd-radius) !important; }
+.wp-list-table tbody tr:last-child td:last-child   { border-bottom-right-radius: var(--vd-radius) !important; }
+
+.wp-list-table thead tr,
+.wp-list-table tfoot tr {
+    background: #f5f2ed !important;
+}
+
+.wp-list-table thead th,
+.wp-list-table thead td {
+    color: var(--vd-muted) !important;
+    font-size: 0.7rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    font-weight: 700 !important;
+    border-bottom: 1px solid var(--vd-border) !important;
+    padding: 10px 12px !important;
+    white-space: nowrap;
+}
+
+.wp-list-table tbody tr {
+    background: #fff !important;
+    transition: background 0.12s ease;
+}
+
+.wp-list-table tbody tr:nth-child(even) {
+    background: #fafaf8 !important;
+}
+
+.wp-list-table tbody tr:hover td {
+    background: #f4f1ec !important;
+}
+
+.wp-list-table td {
+    border-bottom: 1px solid rgba(31, 77, 58, 0.05) !important;
+    vertical-align: middle !important;
+    padding: 14px 12px !important;
+    font-size: 0.88rem !important;
+    color: var(--vd-text) !important;
+}
+
+/* Thumbnail-Spalte */
+.vd-thumb-edit {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.vd-thumb-edit img {
+    width: 96px !important;
+    height: 72px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+    display: block;
+    transition: opacity 0.2s;
+}
+
+.vd-thumb-edit:hover img {
+    opacity: 0.7;
+}
+
+.vd-thumb-edit::after {
+    content: '✎';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #fff;
+    background: rgba(31, 77, 58, 0.55);
+    opacity: 0;
+    transition: opacity 0.2s;
+    border-radius: 8px;
+}
+
+.vd-thumb-edit:hover::after {
+    opacity: 1;
+}
+
+.vd-thumb-placeholder {
+    width: 96px;
+    height: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(47, 107, 85, 0.06);
+    border: 1.5px dashed rgba(47, 107, 85, 0.3);
+    border-radius: 8px;
+    color: #2f6b55;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    transition: background 0.2s;
+}
+
+.vd-thumb-placeholder small {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+}
+
+.vd-thumb-edit:hover .vd-thumb-placeholder {
+    background: rgba(47, 107, 85, 0.12);
+}
+
+/* Nr.-Spalte */
+.wp-list-table th.column-speise_nummer,
+.wp-list-table td.column-speise_nummer {
+    width: 48px !important;
+    text-align: center !important;
+}
+
+/* Drag-Handle Spalte */
+.wp-list-table th.column-vd_order,
+.wp-list-table td.column-vd_order {
+    width: 36px !important;
+    text-align: center !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+/* Titel-Spalte: Row-Actions dezenter */
+.wp-list-table .row-actions {
+    color: var(--vd-muted) !important;
+    font-size: 0.78rem !important;
+    padding-top: 4px;
+}
+
+.wp-list-table .row-actions a {
+    color: var(--vd-green) !important;
+}
+
+.wp-list-table .row-actions .delete a,
+.wp-list-table .row-actions .trash a {
+    color: #c0392b !important;
+}
+
+/* Preis-Spalte */
+.wp-list-table td.column-speise_preis strong,
+.wp-list-table td.column-getraenk_preis strong {
+    color: var(--vd-terra) !important;
+    font-size: 0.9rem !important;
+}
+
+/* Kategorie-Spalte */
+.wp-list-table td.column-speise_kategorie,
+.wp-list-table td.column-getraenk_kategorie {
+    color: var(--vd-muted) !important;
+    font-size: 0.82rem !important;
+}
+
+/* Kategorie-Tabelle: Drag-Handle Spalte */
+.wp-list-table th.column-vd_term_order,
+.wp-list-table td.column-vd_term_order {
+    width: 36px !important;
+    text-align: center !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+/* Subnavigation (Alle / Veröffentlicht / Papierkorb) */
+.post-type-speise .subsubsub,
+.post-type-getraenk .subsubsub {
+    margin: 0 0 0 4px !important;
+    padding: 8px 0 0 !important;
+    font-size: 0.82rem !important;
+}
+
+/* Seitentitel-Bereich */
+.post-type-speise .wp-heading-inline,
+.post-type-getraenk .wp-heading-inline {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+}
+
+/* "Neue Speise"-Button */
+.post-type-speise .page-title-action,
+.post-type-getraenk .page-title-action {
+    background: var(--vd-green) !important;
+    color: #fff !important;
+    border-color: var(--vd-green) !important;
+    border-radius: 8px !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    font-weight: 600 !important;
+    padding: 5px 14px !important;
+}
+
+.post-type-speise .page-title-action:hover,
+.post-type-getraenk .page-title-action:hover {
+    background: var(--vd-green-dark) !important;
+    border-color: var(--vd-green-dark) !important;
+}
+
+/* ─── Post Edit Page ─────────────────────────────────────────────────────── */
+
+.post-type-speise #poststuff,
+.post-type-getraenk #poststuff,
+.post-type-page #poststuff {
+    padding-top: 10px;
+}
+
+/* 2-Spalten-Layout für Seiten */
+.post-type-page #post-body.columns-2 {
+    margin-right: 300px !important;
+}
+
+.post-type-page #post-body.columns-2 #postbox-container-1 {
+    width: 280px !important;
+    float: right !important;
+    margin-right: -300px !important;
+}
+
+.post-type-page #post-body.columns-2 #postbox-container-2 {
+    float: left !important;
+    width: 100% !important;
+}
+
+/* 2-Spalten-Layout: Editor links, Sidebar rechts */
+.post-type-speise #post-body.columns-2,
+.post-type-getraenk #post-body.columns-2 {
+    margin-right: 300px !important;
+}
+
+.post-type-speise #post-body.columns-2 #postbox-container-1,
+.post-type-getraenk #post-body.columns-2 #postbox-container-1 {
+    width: 280px !important;
+    float: right !important;
+    margin-right: -300px !important;
+}
+
+.post-type-speise #post-body.columns-2 #postbox-container-2,
+.post-type-getraenk #post-body.columns-2 #postbox-container-2 {
+    float: left !important;
+    width: 100% !important;
+}
+
+.postbox {
+    border-radius: var(--vd-radius) !important;
+    box-shadow: var(--vd-shadow) !important;
+    border: 1px solid var(--vd-border) !important;
+    margin-bottom: 16px !important;
+}
+
+.postbox .postbox-header {
+    border-bottom: 1px solid var(--vd-border) !important;
+    border-radius: var(--vd-radius) var(--vd-radius) 0 0 !important;
+    background: #faf8f5 !important;
+}
+
+.postbox .postbox-header h2 {
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    color: var(--vd-muted) !important;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────────────── */
+
+.button-primary {
+    background: var(--vd-green) !important;
+    border-color: var(--vd-green) !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+.button-primary:hover {
+    background: var(--vd-green-dark) !important;
+    border-color: var(--vd-green-dark) !important;
+}
+
+/* ─── Notices ────────────────────────────────────────────────────────────── */
+
+.notice {
+    border-radius: 10px !important;
+    border-left-width: 4px !important;
+    box-shadow: var(--vd-shadow) !important;
+}
+
+.notice-success { border-left-color: var(--vd-green) !important; }
+.notice-warning { border-left-color: var(--vd-gold) !important; }
+.notice-error   { border-left-color: var(--vd-terra) !important; }
+
+/* ─── Page Title ─────────────────────────────────────────────────────────── */
+
+.wrap h1.wp-heading-inline {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--vd-text);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+    .vd-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .vd-grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 782px) {
+    .vd-dashboard {
+        padding: 16px;
+    }
+
+    .vd-welcome {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+    }
+
+    .vd-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .vd-actions-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,388 @@
+/* ── VietDura Warenkorb ───────────────────────────────────────────────────── */
+
+/* Cart-Icon im Header */
+.vd-cart-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-green);
+  color: var(--color-white);
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.vd-cart-btn:hover { background: var(--color-green-dark); }
+
+.vd-cart-badge {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-terracotta);
+  color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ── Flyout ── */
+#vd-cart-flyout {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 420px;
+  max-width: 100vw;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -4px 0 32px rgba(0,0,0,0.12);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#vd-cart-flyout.is-open { right: 0; }
+
+#vd-cart-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 9998;
+}
+.vd-cart-open #vd-cart-overlay { display: block; }
+
+.vd-cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #eee;
+}
+.vd-cart-header h3 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.vd-cart-close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+  padding: 4px;
+}
+.vd-cart-close-btn:hover { color: var(--color-text); }
+
+.vd-cart-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 24px;
+}
+
+.vd-cart-empty {
+  text-align: center;
+  color: #888;
+  padding: 48px 0;
+  font-size: 15px;
+}
+
+/* Cart-Zeilen */
+.vd-cart-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  gap: 12px;
+}
+.vd-cart-row-name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+.vd-cart-row-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.vd-cart-row-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-green-dark);
+  min-width: 80px;
+  text-align: right;
+}
+
+/* Mengen-Steuerung */
+.vd-qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f5f5f5;
+  border-radius: 20px;
+  padding: 2px 4px;
+}
+.vd-qty-btn {
+  background: none;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-green-dark);
+  font-weight: 700;
+  transition: background 0.15s;
+}
+.vd-qty-btn:hover { background: #e0e0e0; }
+.vd-qty-val {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Flyout Footer */
+.vd-cart-footer {
+  padding: 16px 24px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+}
+.vd-cart-footer-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.vd-min-hint {
+  display: none;
+  font-size: 12px;
+  color: var(--color-terracotta);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* ── "In den Warenkorb"-Button auf Speisekarte ── */
+.vd-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1.5px solid var(--color-green);
+  color: var(--color-green);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  margin-top: 8px;
+  white-space: nowrap;
+}
+.vd-add-btn:hover {
+  background: var(--color-green);
+  color: #fff;
+}
+.vd-add-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* ── Checkout-Seite ─────────────────────────────────────────────────────── */
+.vd-checkout-wrap {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .vd-checkout-wrap { grid-template-columns: 1fr; }
+}
+
+/* Warenkorb-Zusammenfassung (rechts) */
+.vd-order-summary {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 28px;
+  box-shadow: var(--shadow-soft);
+  position: sticky;
+  top: 100px;
+}
+.vd-order-summary h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  margin: 0 0 20px;
+  color: var(--color-text);
+}
+
+.vd-summary-items { margin-bottom: 20px; }
+.vd-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+  gap: 12px;
+}
+.vd-summary-item-name { flex: 1; }
+.vd-summary-item-qty  { color: #888; white-space: nowrap; }
+.vd-summary-item-price { font-weight: 600; white-space: nowrap; }
+
+.vd-summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-green-dark);
+}
+
+/* Formular (links) */
+.vd-checkout-form { background: #fff; border-radius: var(--radius-md); padding: 32px; box-shadow: var(--shadow-soft); }
+.vd-checkout-form h2 { font-family: var(--font-heading); font-size: 28px; margin: 0 0 28px; }
+
+.vd-field {
+  margin-bottom: 20px;
+}
+.vd-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.vd-field input,
+.vd-field select,
+.vd-field textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text);
+  background: #fafafa;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+.vd-field input:focus,
+.vd-field select:focus,
+.vd-field textarea:focus {
+  border-color: var(--color-green);
+  outline: none;
+  background: #fff;
+}
+.vd-field textarea { resize: vertical; min-height: 80px; }
+
+/* Zahlungsart Radio */
+.vd-payment-options {
+  display: flex;
+  gap: 12px;
+}
+.vd-payment-option {
+  flex: 1;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  padding: 14px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.vd-payment-option:has(input:checked) {
+  border-color: var(--color-green);
+  background: #f0f7f4;
+}
+.vd-payment-option input { display: none; }
+.vd-payment-option-label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.vd-payment-option-sub { font-size: 12px; color: #888; }
+
+/* Submit */
+.vd-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--color-green);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 32px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+.vd-btn:hover:not(:disabled) { background: var(--color-green-dark); }
+.vd-btn--disabled, .vd-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+#vd-min-hint {
+  display: none;
+  text-align: center;
+  color: var(--color-terracotta);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+#vd-order-error {
+  display: none;
+  background: #fff0f0;
+  border-left: 3px solid var(--color-terracotta);
+  color: #c0392b;
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* Bestätigungsblock */
+#vd-order-confirm {
+  display: none;
+  background: #f0f7f4;
+  border-radius: var(--radius-md);
+  padding: 48px 32px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+}
+#vd-order-confirm .vd-confirm-icon { font-size: 56px; margin-bottom: 16px; }
+#vd-order-confirm h2 { font-family: var(--font-heading); font-size: 28px; margin: 0 0 12px; }
+#vd-order-confirm p { color: #555; line-height: 1.7; margin: 0 0 8px; }
+.vd-confirm-nr { font-size: 22px; font-weight: 700; color: var(--color-green-dark); }
+
+@media (max-width: 480px) {
+  #vd-cart-flyout { width: 100vw; right: -100vw; }
+  .vd-payment-options { flex-direction: column; }
+}

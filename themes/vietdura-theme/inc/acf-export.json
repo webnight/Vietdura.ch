@@ -1,0 +1,335 @@
+[
+  {
+    "key": "group_vd_speise",
+    "title": "Speise Details",
+    "fields": [
+      {
+        "key": "field_vd_speise_nummer",
+        "label": "Nummer",
+        "name": "nummer",
+        "type": "text",
+        "instructions": "Sortier- und Anzeigenummer, z.B. \"01\"",
+        "required": 0,
+        "placeholder": "01",
+        "maxlength": 4,
+        "wrapper": { "width": "20", "class": "", "id": "" }
+      },
+      {
+        "key": "field_vd_speise_preis",
+        "label": "Preis (CHF)",
+        "name": "preis",
+        "type": "text",
+        "instructions": "Nur die Zahl, ohne W\u00e4hrung \u2013 z.B. \"24.50\"",
+        "required": 1,
+        "placeholder": "24.50",
+        "wrapper": { "width": "30", "class": "", "id": "" }
+      },
+      {
+        "key": "field_vd_speise_highlight",
+        "label": "Auf Startseite hervorheben",
+        "name": "highlight",
+        "type": "true_false",
+        "instructions": "Speise erscheint im Highlight-Bereich der Startseite",
+        "default_value": 0,
+        "ui": 1,
+        "ui_on_text": "Ja",
+        "ui_off_text": "Nein",
+        "wrapper": { "width": "50", "class": "", "id": "" }
+      },
+      {
+        "key": "field_vd_speise_badges",
+        "label": "Badges",
+        "name": "badges",
+        "type": "checkbox",
+        "instructions": "Mehrfachauswahl m\u00f6glich",
+        "required": 0,
+        "choices": {
+          "vegetarisch": "Vegetarisch",
+          "vegan": "Vegan",
+          "scharf": "Scharf"
+        },
+        "layout": "horizontal",
+        "return_format": "value"
+      }
+    ],
+    "location": [
+      [ { "param": "post_type", "operator": "==", "value": "speise" } ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": ["the_content", "discussion_id", "comments", "revisions", "slug", "author", "format", "page_attributes", "tags"],
+    "active": true
+  },
+  {
+    "key": "group_vd_getraenk",
+    "title": "Getr\u00e4nk Details",
+    "fields": [
+      {
+        "key": "field_vd_getraenk_preis",
+        "label": "Preis (CHF)",
+        "name": "preis",
+        "type": "text",
+        "instructions": "Nur die Zahl, ohne W\u00e4hrung \u2013 z.B. \"5.50\"",
+        "required": 1,
+        "placeholder": "5.50",
+        "wrapper": { "width": "30", "class": "", "id": "" }
+      },
+      {
+        "key": "field_vd_getraenk_volumen",
+        "label": "Volumen",
+        "name": "volumen",
+        "type": "text",
+        "instructions": "z.B. \"3 dl\", \"0.5 l\", \"33 cl\"",
+        "required": 0,
+        "placeholder": "3 dl",
+        "wrapper": { "width": "30", "class": "", "id": "" }
+      }
+    ],
+    "location": [
+      [ { "param": "post_type", "operator": "==", "value": "getraenk" } ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": ["the_content", "discussion_id", "comments", "revisions", "slug", "author", "format", "page_attributes", "tags"],
+    "active": true
+  },
+  {
+    "key": "group_vd_startseite",
+    "title": "Startseite",
+    "fields": [
+      {
+        "key": "field_vd_hero_eyebrow",
+        "label": "Eyebrow (Kicker \u00fcber dem Titel)",
+        "name": "hero_eyebrow",
+        "type": "text",
+        "placeholder": "Modernes vietnamesisches Restaurant in Tagelswangen",
+        "required": 0
+      },
+      {
+        "key": "field_vd_hero_titel",
+        "label": "Hero-Titel",
+        "name": "hero_titel",
+        "type": "text",
+        "instructions": "Zeilenumbruch mit | markieren, z.B. \"Frisch. Authentisch.|Modern interpretiert.\"",
+        "placeholder": "Frisch. Authentisch.|Modern interpretiert.",
+        "required": 0
+      },
+      {
+        "key": "field_vd_hero_text",
+        "label": "Hero-Text",
+        "name": "hero_text",
+        "type": "textarea",
+        "rows": 3,
+        "new_lines": "",
+        "required": 0
+      },
+      {
+        "key": "field_vd_hero_btn1_text",
+        "label": "Button 1 \u2013 Text",
+        "name": "hero_btn1_text",
+        "type": "text",
+        "placeholder": "Speisekarte ansehen",
+        "required": 0,
+        "wrapper": { "width": "50", "class": "", "id": "" }
+      },
+      {
+        "key": "field_vd_hero_btn1_url",
+        "label": "Button 1 \u2013 URL",
+        "name": "hero_btn1_url",
+        "type": "text",
+        "placeholder": "/speisekarte",
+        "required": 0,
+        "wrapper": { "width": "50", "class": "", "id": "" }
+      },
+      {
+        "key": "field_vd_hero_btn2_text",
+        "label": "Button 2 \u2013 Text",
+        "name": "hero_btn2_text",
+        "type": "text",
+        "placeholder": "Tisch reservieren",
+        "required": 0,
+        "wrapper": { "width": "50", "class": "", "id": "" }
+      },
+      {
+        "key": "field_vd_hero_btn2_url",
+        "label": "Button 2 \u2013 URL",
+        "name": "hero_btn2_url",
+        "type": "text",
+        "placeholder": "/reservieren",
+        "required": 0,
+        "wrapper": { "width": "50", "class": "", "id": "" }
+      }
+    ],
+    "location": [
+      [ { "param": "page_type", "operator": "==", "value": "front_page" } ],
+      [ { "param": "options_page", "operator": "==", "value": "vietdura-startseite" } ]
+    ],
+    "menu_order": 0,
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+  },
+  {
+    "key": "group_vd_kontakt",
+    "title": "Kontakt & \u00d6ffnungszeiten",
+    "fields": [
+      {
+        "key": "field_vd_adresse",
+        "label": "Adresse (Strasse & Hausnummer)",
+        "name": "adresse",
+        "type": "text",
+        "placeholder": "Musterstrasse 12",
+        "required": 0,
+        "wrapper": { "width": "60", "class": "", "id": "" }
+      },
+      {
+        "key": "field_vd_plz_ort",
+        "label": "PLZ & Ort",
+        "name": "plz_ort",
+        "type": "text",
+        "placeholder": "8317 Tagelswangen",
+        "required": 0,
+        "wrapper": { "width": "40", "class": "", "id": "" }
+      },
+      {
+        "key": "field_vd_telefon",
+        "label": "Telefon",
+        "name": "telefon",
+        "type": "text",
+        "placeholder": "+41 52 123 45 67",
+        "required": 0,
+        "wrapper": { "width": "50", "class": "", "id": "" }
+      },
+      {
+        "key": "field_vd_telefon_href",
+        "label": "Telefon (f\u00fcr tel:-Link, keine Leerzeichen)",
+        "name": "telefon_href",
+        "type": "text",
+        "placeholder": "+41521234567",
+        "required": 0,
+        "wrapper": { "width": "50", "class": "", "id": "" }
+      },
+      {
+        "key": "field_vd_email",
+        "label": "E-Mail",
+        "name": "email",
+        "type": "email",
+        "placeholder": "info@vietdura.ch",
+        "required": 0
+      },
+      {
+        "key": "field_vd_reservierung_url",
+        "label": "Reservierungs-URL",
+        "name": "reservierung_url",
+        "type": "text",
+        "placeholder": "/reservieren",
+        "required": 0
+      },
+      {
+        "key": "field_vd_oeffnungszeiten",
+        "label": "\u00d6ffnungszeiten",
+        "name": "oeffnungszeiten",
+        "type": "repeater",
+        "instructions": "Jede Zeile = eine Zeile in der Tabelle",
+        "required": 0,
+        "min": 0,
+        "layout": "table",
+        "button_label": "Zeile hinzuf\u00fcgen",
+        "sub_fields": [
+          {
+            "key": "field_vd_oez_tag",
+            "label": "Tag / Zeitraum",
+            "name": "tag",
+            "type": "text",
+            "required": 1,
+            "placeholder": "Dienstag \u2013 Freitag",
+            "wrapper": { "width": "40", "class": "", "id": "" }
+          },
+          {
+            "key": "field_vd_oez_zeiten",
+            "label": "Zeiten (leer = Geschlossen)",
+            "name": "zeiten",
+            "type": "text",
+            "required": 0,
+            "placeholder": "11:30 \u2013 14:00 & 17:30 \u2013 22:00",
+            "wrapper": { "width": "60", "class": "", "id": "" }
+          }
+        ]
+      }
+    ],
+    "location": [
+      [ { "param": "options_page", "operator": "==", "value": "vietdura-kontakt" } ]
+    ],
+    "menu_order": 0,
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+  },
+  {
+    "key": "group_vd_deklaration",
+    "title": "Deklaration & Herkunft",
+    "fields": [
+      {
+        "key": "field_vd_dekl_intro",
+        "label": "Einleitungstext",
+        "name": "dekl_intro",
+        "type": "textarea",
+        "instructions": "Kurzer Einleitungstext f\u00fcr die Deklarationsseite",
+        "required": 0,
+        "rows": 4,
+        "new_lines": "wpautop"
+      },
+      {
+        "key": "field_vd_dekl_eintraege",
+        "label": "Herkunftsangaben",
+        "name": "dekl_eintraege",
+        "type": "repeater",
+        "instructions": "Produkt und dessen Herkunft eintragen",
+        "required": 0,
+        "min": 0,
+        "layout": "table",
+        "button_label": "Eintrag hinzuf\u00fcgen",
+        "sub_fields": [
+          {
+            "key": "field_vd_dekl_produkt",
+            "label": "Produkt",
+            "name": "produkt",
+            "type": "text",
+            "required": 1,
+            "placeholder": "z.B. Rindfleisch",
+            "wrapper": { "width": "35", "class": "", "id": "" }
+          },
+          {
+            "key": "field_vd_dekl_herkunft",
+            "label": "Herkunft / Land",
+            "name": "herkunft",
+            "type": "text",
+            "required": 1,
+            "placeholder": "z.B. Schweiz",
+            "wrapper": { "width": "30", "class": "", "id": "" }
+          },
+          {
+            "key": "field_vd_dekl_hinweis",
+            "label": "Hinweis",
+            "name": "hinweis",
+            "type": "text",
+            "required": 0,
+            "placeholder": "optional",
+            "wrapper": { "width": "35", "class": "", "id": "" }
+          }
+        ]
+      }
+    ],
+    "location": [
+      [ { "param": "options_page", "operator": "==", "value": "vietdura-deklaration" } ]
+    ],
+    "menu_order": 0,
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+  }
+]

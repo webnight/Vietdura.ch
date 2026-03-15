@@ -195,7 +195,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
-  margin-top: 8px;
+  margin-top: auto;
   white-space: nowrap;
 }
 .vd-add-btn:hover {

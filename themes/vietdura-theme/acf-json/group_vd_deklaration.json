@@ -1,0 +1,110 @@
+{
+    "key": "group_vd_deklaration",
+    "title": "Deklaration & Herkunft",
+    "fields": [
+        {
+            "key": "field_vd_dekl_intro",
+            "label": "Einleitungstext",
+            "name": "dekl_intro",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Kurzer Einleitungstext für die Deklarationsseite",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 4,
+            "new_lines": "wpautop",
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_vd_dekl_eintraege",
+            "label": "Herkunftsangaben",
+            "name": "dekl_eintraege",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Produkt und dessen Herkunft eintragen",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": 0,
+            "layout": "table",
+            "button_label": "Eintrag hinzufügen",
+            "sub_fields": [
+                {
+                    "key": "field_vd_dekl_produkt",
+                    "label": "Produkt",
+                    "name": "produkt",
+                    "type": "text",
+                    "required": 1,
+                    "placeholder": "z.B. Rindfleisch",
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_vd_dekl_herkunft",
+                    "label": "Herkunft \/ Land",
+                    "name": "herkunft",
+                    "type": "text",
+                    "required": 1,
+                    "placeholder": "z.B. Schweiz",
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_vd_dekl_hinweis",
+                    "label": "Hinweis",
+                    "name": "hinweis",
+                    "type": "text",
+                    "required": 0,
+                    "placeholder": "optional",
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "comments",
+        "revisions",
+        "author"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1773588372
+}

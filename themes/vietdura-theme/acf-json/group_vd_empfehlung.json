@@ -1,0 +1,198 @@
+{
+    "key": "group_vd_empfehlung",
+    "title": "Tagesempfehlung",
+    "fields": [
+        {
+            "key": "field_vd_emp_aktiv",
+            "label": "Empfehlung anzeigen",
+            "name": "empfehlung_aktiv",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "EIN = Banner erscheint auf der Homepage. AUS = unsichtbar.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Ja – anzeigen",
+            "ui_off_text": "Nein – ausblenden",
+            "message": ""
+        },
+        {
+            "key": "field_vd_emp_badge",
+            "label": "Badge (z.B. Heute, Neu, Saisonal)",
+            "name": "empfehlung_badge",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_vd_emp_aktiv",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Heute empfohlen",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vd_emp_titel",
+            "label": "Titel \/ Gerichtname",
+            "name": "empfehlung_titel",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_vd_emp_aktiv",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "z.B. Bun Bowl Special",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vd_emp_text",
+            "label": "Kurzbeschreibung",
+            "name": "empfehlung_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_vd_emp_aktiv",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 2,
+            "new_lines": "",
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_vd_emp_preis",
+            "label": "Preis (nur Zahl, z.B. 26.50)",
+            "name": "empfehlung_preis",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_vd_emp_aktiv",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "26.50",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vd_emp_bild",
+            "label": "Bild",
+            "name": "empfehlung_bild",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Empfohlen: 3:2 Format, min. 600x400px.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_vd_emp_aktiv",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "175"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "empfehlung"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1773609698
+}

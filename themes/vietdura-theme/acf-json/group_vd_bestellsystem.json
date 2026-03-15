@@ -1,0 +1,186 @@
+{
+    "key": "group_vd_bestellsystem",
+    "title": "Bestellsystem & Benachrichtigungen",
+    "fields": [
+        {
+            "key": "field_vd_tab_twint",
+            "label": "Zahlung",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_vd_twint_nummer",
+            "label": "Twint-Nummer",
+            "name": "vd_twint_nummer",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Wird in der Bestätigungs-E-Mail an den Kunden angezeigt.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "+41 79 000 00 00",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vd_restaurant_email",
+            "label": "Restaurant E-Mail",
+            "name": "vd_restaurant_email",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "Neue Bestellungen werden an diese Adresse gesendet.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "info@vietdura.ch",
+            "default_value": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vd_reservierung_url",
+            "label": "Reservierung URL",
+            "name": "vd_reservierung_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Link des Reservation-Buttons im Header.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "tel:+41449409999",
+            "default_value": ""
+        },
+        {
+            "key": "field_vd_tab_sevenio",
+            "label": "WhatsApp \/ SMS (seven.io)",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_vd_sevenio_api_key",
+            "label": "seven.io API-Key",
+            "name": "vd_sevenio_api_key",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "API-Key aus app.seven.io → Einstellungen → API.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Ihr seven.io API-Key",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vd_restaurant_telefon",
+            "label": "Restaurant Telefon (Empfänger)",
+            "name": "vd_restaurant_telefon",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Nummer die WhatsApp\/SMS empfängt. Mit Ländervorwahl, ohne Leerzeichen (z.B. +41791234567).",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "+41791234567",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vd_notify_channel",
+            "label": "Kanal",
+            "name": "vd_notify_channel",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Benachrichtigungskanal für neue Bestellungen.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "whatsapp": "WhatsApp",
+                "sms": "SMS"
+            },
+            "default_value": "whatsapp",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "return_format": "value",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "vietdura-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1773598898
+}

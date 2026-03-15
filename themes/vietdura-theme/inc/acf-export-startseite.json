@@ -1,0 +1,508 @@
+[
+  {
+    "key": "group_vd_startseite",
+    "title": "Startseite",
+    "fields": [
+      {
+        "key": "field_vd_hero_text_tab",
+        "label": "Hero-Inhalt",
+        "name": "hero_text_tab",
+        "type": "tab",
+        "placement": "top",
+        "endpoint": 0,
+        "menu_order": 0
+      },
+      {
+        "key": "field_vd_hero_eyebrow",
+        "label": "Eyebrow (Kicker über dem Titel)",
+        "name": "hero_eyebrow",
+        "type": "text",
+        "placeholder": "Modernes vietnamesisches Restaurant in Tagelswangen",
+        "required": 0,
+        "menu_order": 1
+      },
+      {
+        "key": "field_vd_hero_titel",
+        "label": "Hero-Titel",
+        "name": "hero_titel",
+        "type": "text",
+        "instructions": "Zeilenumbruch mit | markieren, z.B. \"Frisch. Authentisch.|Modern interpretiert.\"",
+        "placeholder": "Frisch. Authentisch.|Modern interpretiert.",
+        "required": 0,
+        "menu_order": 2
+      },
+      {
+        "key": "field_vd_hero_text",
+        "label": "Hero-Text",
+        "name": "hero_text",
+        "type": "textarea",
+        "rows": 3,
+        "new_lines": "",
+        "required": 0,
+        "menu_order": 3
+      },
+      {
+        "key": "field_vd_hero_btn1_text",
+        "label": "Button 1 – Text",
+        "name": "hero_btn1_text",
+        "type": "text",
+        "placeholder": "Speisekarte ansehen",
+        "required": 0,
+        "wrapper": { "width": "50", "class": "", "id": "" },
+        "menu_order": 4
+      },
+      {
+        "key": "field_vd_hero_btn1_url",
+        "label": "Button 1 – URL",
+        "name": "hero_btn1_url",
+        "type": "text",
+        "placeholder": "/speisekarte",
+        "required": 0,
+        "wrapper": { "width": "50", "class": "", "id": "" },
+        "menu_order": 5
+      },
+      {
+        "key": "field_vd_hero_btn2_text",
+        "label": "Button 2 – Text",
+        "name": "hero_btn2_text",
+        "type": "text",
+        "placeholder": "Tisch reservieren",
+        "required": 0,
+        "wrapper": { "width": "50", "class": "", "id": "" },
+        "menu_order": 6
+      },
+      {
+        "key": "field_vd_hero_btn2_url",
+        "label": "Button 2 – URL",
+        "name": "hero_btn2_url",
+        "type": "text",
+        "placeholder": "/reservieren",
+        "required": 0,
+        "wrapper": { "width": "50", "class": "", "id": "" },
+        "menu_order": 7
+      },
+      {
+        "key": "field_vd_hero_bg_tab",
+        "label": "Hintergrundbild",
+        "name": "hero_bg_tab",
+        "type": "tab",
+        "placement": "top",
+        "endpoint": 0,
+        "menu_order": 10
+      },
+      {
+        "key": "field_vd_hero_bg_image",
+        "label": "Hintergrundbild",
+        "name": "hero_bg_image",
+        "type": "image",
+        "instructions": "Wird als Hero-Hintergrund verwendet. Empfohlen: min. 1920×800px.",
+        "required": 0,
+        "return_format": "array",
+        "preview_size": "medium",
+        "library": "all",
+        "menu_order": 11
+      },
+      {
+        "key": "field_vd_hero_bg_overlay_opacity",
+        "label": "Overlay-Deckkraft",
+        "name": "hero_bg_overlay_opacity",
+        "type": "select",
+        "instructions": "Grünes Overlay über dem Hintergrundbild. Höherer Wert = dunkler.",
+        "required": 0,
+        "choices": {
+          "0.35": "Leicht (0.35)",
+          "0.45": "Mittel-leicht (0.45)",
+          "0.55": "Mittel (0.55)",
+          "0.65": "Mittel-dunkel (0.65)",
+          "0.75": "Dunkel (0.75)"
+        },
+        "default_value": "0.55",
+        "return_format": "value",
+        "menu_order": 12
+      },
+      {
+        "key": "field_vd_hero_card_tab",
+        "label": "Empfehlungs-Karte",
+        "name": "hero_card_tab",
+        "type": "tab",
+        "placement": "top",
+        "endpoint": 0,
+        "menu_order": 20
+      },
+      {
+        "key": "field_vd_hero_show_featured_card",
+        "label": "Empfehlungs-Karte anzeigen",
+        "name": "hero_show_featured_card",
+        "type": "true_false",
+        "instructions": "Karte rechts im Hero ein- oder ausblenden.",
+        "required": 0,
+        "default_value": 1,
+        "ui": 1,
+        "ui_on_text": "Ja",
+        "ui_off_text": "Nein",
+        "menu_order": 21
+      },
+      {
+        "key": "field_vd_hero_featured_image",
+        "label": "Bild der Karte",
+        "name": "hero_featured_image",
+        "type": "image",
+        "instructions": "Bild für die Empfehlungs-Karte. Empfohlen: 3:2 Format.",
+        "required": 0,
+        "return_format": "array",
+        "preview_size": "thumbnail",
+        "library": "all",
+        "conditional_logic": [[{ "field": "field_vd_hero_show_featured_card", "operator": "==", "value": "1" }]],
+        "menu_order": 22
+      },
+      {
+        "key": "field_vd_hero_featured_badge",
+        "label": "Badge-Text",
+        "name": "hero_featured_badge",
+        "type": "text",
+        "placeholder": "Empfohlen",
+        "required": 0,
+        "wrapper": { "width": "50", "class": "", "id": "" },
+        "conditional_logic": [[{ "field": "field_vd_hero_show_featured_card", "operator": "==", "value": "1" }]],
+        "menu_order": 23
+      },
+      {
+        "key": "field_vd_hero_featured_title",
+        "label": "Titel der Karte",
+        "name": "hero_featured_title",
+        "type": "text",
+        "placeholder": "z.B. Bun Bowl Special",
+        "required": 0,
+        "wrapper": { "width": "50", "class": "", "id": "" },
+        "conditional_logic": [[{ "field": "field_vd_hero_show_featured_card", "operator": "==", "value": "1" }]],
+        "menu_order": 24
+      },
+      {
+        "key": "field_vd_hero_featured_text",
+        "label": "Beschreibung",
+        "name": "hero_featured_text",
+        "type": "textarea",
+        "rows": 2,
+        "new_lines": "",
+        "required": 0,
+        "conditional_logic": [[{ "field": "field_vd_hero_show_featured_card", "operator": "==", "value": "1" }]],
+        "menu_order": 25
+      },
+      {
+        "key": "field_vd_hero_featured_price",
+        "label": "Preis",
+        "name": "hero_featured_price",
+        "type": "text",
+        "instructions": "Nur die Zahl, ohne Währung – z.B. \"26.50\"",
+        "placeholder": "26.50",
+        "required": 0,
+        "wrapper": { "width": "30", "class": "", "id": "" },
+        "conditional_logic": [[{ "field": "field_vd_hero_show_featured_card", "operator": "==", "value": "1" }]],
+        "menu_order": 26
+      }
+    ],
+    "location": [
+      [{ "param": "page_type", "operator": "==", "value": "front_page" }],
+      [{ "param": "options_page", "operator": "==", "value": "vietdura-startseite" }]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+  },
+  {
+    "key": "group_vd_empfehlung_cpt",
+    "title": "Tagesempfehlung",
+    "fields": [
+      {
+        "key": "field_vd_emp_aktiv",
+        "label": "Empfehlung anzeigen",
+        "name": "empfehlung_aktiv",
+        "type": "true_false",
+        "instructions": "EIN = Empfehlungs-Banner erscheint auf der Homepage. AUS = unsichtbar.",
+        "default_value": 0,
+        "ui": 1,
+        "ui_on_text": "Ja – anzeigen",
+        "ui_off_text": "Nein – ausblenden",
+        "menu_order": 0
+      },
+      {
+        "key": "field_vd_emp_badge",
+        "label": "Badge (z.B. \"Heute\", \"Neu\", \"Saisonal\")",
+        "name": "empfehlung_badge",
+        "type": "text",
+        "placeholder": "Heute empfohlen",
+        "wrapper": { "width": "40" },
+        "conditional_logic": [[{ "field": "field_vd_emp_aktiv", "operator": "==", "value": "1" }]],
+        "menu_order": 1
+      },
+      {
+        "key": "field_vd_emp_titel",
+        "label": "Titel / Gerichtname",
+        "name": "empfehlung_titel",
+        "type": "text",
+        "placeholder": "z.B. Bun Bowl Special",
+        "required": 1,
+        "wrapper": { "width": "60" },
+        "conditional_logic": [[{ "field": "field_vd_emp_aktiv", "operator": "==", "value": "1" }]],
+        "menu_order": 2
+      },
+      {
+        "key": "field_vd_emp_text",
+        "label": "Kurzbeschreibung",
+        "name": "empfehlung_text",
+        "type": "textarea",
+        "rows": 2,
+        "new_lines": "",
+        "conditional_logic": [[{ "field": "field_vd_emp_aktiv", "operator": "==", "value": "1" }]],
+        "menu_order": 3
+      },
+      {
+        "key": "field_vd_emp_preis",
+        "label": "Preis (nur Zahl, z.B. 26.50)",
+        "name": "empfehlung_preis",
+        "type": "text",
+        "placeholder": "26.50",
+        "wrapper": { "width": "30" },
+        "conditional_logic": [[{ "field": "field_vd_emp_aktiv", "operator": "==", "value": "1" }]],
+        "menu_order": 4
+      },
+      {
+        "key": "field_vd_emp_bild",
+        "label": "Bild",
+        "name": "empfehlung_bild",
+        "type": "image",
+        "return_format": "array",
+        "preview_size": "medium",
+        "instructions": "Empfohlen: 3:2 Format, min. 600×400px.",
+        "conditional_logic": [[{ "field": "field_vd_emp_aktiv", "operator": "==", "value": "1" }]],
+        "menu_order": 5
+      }
+    ],
+    "location": [
+      [{ "param": "post_type", "operator": "==", "value": "empfehlung" }]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+  },
+  {
+    "key": "group_vd_tagesmenu",
+    "title": "Tagesmenu",
+    "fields": [
+      {
+        "key": "field_vd_tm_aktiv",
+        "label": "Tagesmenu anzeigen",
+        "name": "tagesmenu_aktiv",
+        "type": "true_false",
+        "instructions": "EIN = Tagesmenu erscheint auf der Homepage und der Mittagsmenu-Seite.",
+        "default_value": 0,
+        "ui": 1,
+        "ui_on_text": "Ja – anzeigen",
+        "ui_off_text": "Nein – ausblenden",
+        "menu_order": 0
+      },
+      {
+        "key": "field_vd_tm_datum",
+        "label": "Datum / Bezeichnung",
+        "name": "tagesmenu_datum",
+        "type": "text",
+        "instructions": "z.B. \"Heute, 15. März\" oder \"Diese Woche\"",
+        "placeholder": "Heute",
+        "wrapper": { "width": "50" },
+        "conditional_logic": [[{ "field": "field_vd_tm_aktiv", "operator": "==", "value": "1" }]],
+        "menu_order": 1
+      },
+      {
+        "key": "field_vd_tm_intro",
+        "label": "Einleitungstext",
+        "name": "tagesmenu_intro",
+        "type": "text",
+        "placeholder": "Frisch gekocht – täglich wechselndes Mittagsmenu",
+        "wrapper": { "width": "50" },
+        "conditional_logic": [[{ "field": "field_vd_tm_aktiv", "operator": "==", "value": "1" }]],
+        "menu_order": 2
+      },
+      {
+        "key": "field_vd_tm_preis_info",
+        "label": "Preis-Info",
+        "name": "tagesmenu_preis_info",
+        "type": "text",
+        "instructions": "Wird unter dem Menu angezeigt.",
+        "placeholder": "Inkl. Suppe oder Dessert · CHF 18.50 / 21.50",
+        "conditional_logic": [[{ "field": "field_vd_tm_aktiv", "operator": "==", "value": "1" }]],
+        "menu_order": 3
+      },
+      {
+        "key": "field_vd_tm_extras",
+        "label": "Zusätzliche Menu-Positionen",
+        "name": "tagesmenu_extras",
+        "type": "repeater",
+        "instructions": "Hier kannst du Gerichte erfassen die NICHT in der Speisekarte sind.",
+        "min": 0,
+        "max": 10,
+        "layout": "block",
+        "button_label": "+ Position hinzufügen",
+        "conditional_logic": [[{ "field": "field_vd_tm_aktiv", "operator": "==", "value": "1" }]],
+        "menu_order": 4,
+        "sub_fields": [
+          {
+            "key": "field_vd_tm_extra_badge",
+            "label": "Badge (z.B. \"Menu 1\", \"Suppe\")",
+            "name": "badge",
+            "type": "text",
+            "placeholder": "Menu 1",
+            "wrapper": { "width": "30" }
+          },
+          {
+            "key": "field_vd_tm_extra_titel",
+            "label": "Gericht",
+            "name": "titel",
+            "type": "text",
+            "placeholder": "z.B. Pho Bo mit Rindfleisch",
+            "required": 1,
+            "wrapper": { "width": "70" }
+          },
+          {
+            "key": "field_vd_tm_extra_beschreibung",
+            "label": "Beschreibung",
+            "name": "beschreibung",
+            "type": "text",
+            "placeholder": "Kurze Beschreibung (optional)",
+            "wrapper": { "width": "70" }
+          },
+          {
+            "key": "field_vd_tm_extra_preis",
+            "label": "Preis (CHF)",
+            "name": "preis",
+            "type": "text",
+            "placeholder": "18.50",
+            "wrapper": { "width": "30" }
+          }
+        ]
+      }
+    ],
+    "location": [
+      [{ "param": "options_page", "operator": "==", "value": "vietdura-tagesmenu" }]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+  },
+  {
+    "key": "group_vd_speise_details",
+    "title": "Speise Details",
+    "fields": [
+      {
+        "key": "field_vd_speise_nummer",
+        "label": "Menü-Nr.",
+        "name": "menu_nummer",
+        "type": "text",
+        "placeholder": "z.B. 12",
+        "wrapper": { "width": "20" },
+        "menu_order": 0
+      },
+      {
+        "key": "field_vd_speise_preis",
+        "label": "Preis (CHF)",
+        "name": "preis",
+        "type": "text",
+        "instructions": "Nur bei Speisen ohne Varianten. z.B. \"24.50\"",
+        "placeholder": "24.50",
+        "wrapper": { "width": "30" },
+        "menu_order": 1
+      },
+      {
+        "key": "field_vd_speise_badge",
+        "label": "Hinweis",
+        "name": "badges",
+        "type": "checkbox",
+        "choices": {
+          "beliebt": "Beliebt",
+          "haus-hit": "Haus-Hit",
+          "neu": "Neu",
+          "vegetarisch": "Vegetarisch",
+          "scharf": "Scharf"
+        },
+        "default_value": [],
+        "return_format": "value",
+        "layout": "horizontal",
+        "toggle": 0,
+        "wrapper": { "width": "50" },
+        "menu_order": 2
+      },
+      {
+        "key": "field_vd_speise_allergene",
+        "label": "Allergene",
+        "name": "allergene",
+        "type": "text",
+        "placeholder": "z.B. Gluten, Soja, Erdnüsse",
+        "wrapper": { "width": "50" },
+        "menu_order": 3
+      },
+      {
+        "key": "field_vd_speise_reihenfolge",
+        "label": "Reihenfolge",
+        "name": "reihenfolge",
+        "type": "number",
+        "default_value": 10,
+        "wrapper": { "width": "25" },
+        "menu_order": 4
+      },
+      {
+        "key": "field_vd_speise_highlight",
+        "label": "Auf Startseite anzeigen",
+        "name": "highlight",
+        "type": "true_false",
+        "instructions": "Speise wird im Empfehlungs-Abschnitt auf der Startseite angezeigt.",
+        "default_value": 0,
+        "ui": 1,
+        "ui_on_text": "Ja",
+        "ui_off_text": "Nein",
+        "wrapper": { "width": "50" },
+        "menu_order": 5
+      },
+      {
+        "key": "field_vd_speise_tages_menu",
+        "label": "🍜 Im Tagesmenu",
+        "name": "tages_menu",
+        "type": "true_false",
+        "instructions": "Speise erscheint heute im Mittagsmenu auf der Website.",
+        "default_value": 0,
+        "ui": 1,
+        "ui_on_text": "Ja – heute",
+        "ui_off_text": "Nein",
+        "wrapper": { "width": "50" },
+        "menu_order": 6
+      },
+      {
+        "key": "field_vd_speise_tages_preis",
+        "label": "Tagesmenu-Preis (CHF)",
+        "name": "tages_preis",
+        "type": "text",
+        "instructions": "Sonderpreis für das Tagesmenu. Leer = normaler Preis wird verwendet.",
+        "placeholder": "18.50",
+        "wrapper": { "width": "50" },
+        "conditional_logic": [[{ "field": "field_vd_speise_tages_menu", "operator": "==", "value": "1" }]],
+        "menu_order": 7
+      }
+    ],
+    "location": [
+      [{ "param": "post_type", "operator": "==", "value": "speise" }]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+  }
+]

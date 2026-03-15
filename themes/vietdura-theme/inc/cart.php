@@ -50,33 +50,54 @@ function vd_ajax_cart_add(): void {
 	check_ajax_referer( 'vd_cart_nonce', 'nonce' );
 
 	$post_id = (int) ( $_POST['post_id'] ?? 0 );
-	$type    = sanitize_key( $_POST['type'] ?? 'speise' ); // speise | getraenk
+	$type    = sanitize_key( $_POST['type'] ?? 'speise' );
+	$context = sanitize_key( $_POST['context'] ?? '' ); // speisekarte | tagesmenu
 
 	if ( ! $post_id ) {
 		wp_send_json_error( 'Ungültige ID' );
 	}
 
 	$post = get_post( $post_id );
-	if ( ! $post || ! in_array( $post->post_type, [ 'speise', 'getraenk' ], true ) ) {
+	if ( ! $post || ! in_array( $post->post_type, [ 'speise', 'getraenk', 'mittagsmenu' ], true ) ) {
 		wp_send_json_error( 'Artikel nicht gefunden' );
 	}
 
-	$preis_raw = get_post_meta( $post_id, 'preis', true );
-	$preis     = (float) str_replace( [ "'", ',', ' ' ], [ '', '.', '' ], (string) $preis_raw );
+	// Bestellzeit prüfen
+	$bestell_typ = ( $context === 'tagesmenu' || $post->post_type === 'mittagsmenu' ) ? 'mittagsmenu' : $type;
+	$zeitcheck   = vd_bestellzeit_pruefen( $bestell_typ );
+	if ( ! $zeitcheck['ok'] ) {
+		wp_send_json_error( [ 'message' => $zeitcheck['message'], 'closed' => true ] );
+	}
+
+	// Kontext entscheidet den Preis:
+	// - tagesmenu: tages_preis wenn vorhanden, sonst normaler preis
+	// - speisekarte oder kein Kontext: immer normaler preis
+	if ( $context === 'tagesmenu' ) {
+		$tages_preis = get_post_meta( $post_id, 'tages_preis', true );
+		$preis_raw   = $tages_preis ?: get_post_meta( $post_id, 'preis', true );
+	} else {
+		$preis_raw = get_post_meta( $post_id, 'preis', true );
+	}
+	$preis = (float) str_replace( [ "'", ',', ' ' ], [ '', '.', '' ], (string) $preis_raw );
 
 	if ( ! $preis ) {
 		wp_send_json_error( 'Kein Preis hinterlegt' );
 	}
 
 	$cart = vd_cart_get();
-	$key  = 'item_' . $post_id;
+	// Eigener Key pro Kontext damit Tagesmenu-Preis und Speisekarte-Preis separat im Warenkorb sind
+	$key  = $context === 'tagesmenu' ? 'item_' . $post_id . '_tm' : 'item_' . $post_id;
 
 	if ( isset( $cart[ $key ] ) ) {
 		$cart[ $key ]['menge']++;
 	} else {
+		$name = get_the_title( $post_id );
+		if ( $context === 'tagesmenu' ) {
+			$name .= ' (Tagesmenu)';
+		}
 		$cart[ $key ] = [
 			'post_id' => $post_id,
-			'name'    => get_the_title( $post_id ),
+			'name'    => $name,
 			'preis'   => $preis,
 			'menge'   => 1,
 			'type'    => $type,

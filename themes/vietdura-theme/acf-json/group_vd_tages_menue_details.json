@@ -1,0 +1,148 @@
+{
+    "key": "group_vd_tages_menue_details",
+    "title": "Mittagsmenü",
+    "fields": [
+        {
+            "key": "field_vd_tm_post_nummer",
+            "label": "Menü-Nr.",
+            "name": "menu_nummer",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "z.B. 12",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vd_tm_post_preis",
+            "label": "Preis (CHF)",
+            "name": "preis",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "z.B. \"18.50\"",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "18.50",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vd_tm_post_badge",
+            "label": "Hinweis",
+            "name": "badges",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "beliebt": "Beliebt",
+                "haus-hit": "Haus-Hit",
+                "neu": "Neu",
+                "vegetarisch": "Vegetarisch",
+                "scharf": "Scharf"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "layout": "horizontal",
+            "toggle": 0,
+            "allow_custom": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Add new choice"
+        },
+        {
+            "key": "field_vd_tm_post_allergene",
+            "label": "Allergene",
+            "name": "allergene",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "z.B. Gluten, Soja, Erdnüsse",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vd_tm_post_reihenfolge",
+            "label": "Reihenfolge",
+            "name": "reihenfolge",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 10,
+            "min": "",
+            "max": "",
+            "step": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "mittagsmenu"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "discussion",
+        "comments",
+        "revisions",
+        "author",
+        "format",
+        "page_attributes",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1773615591
+}

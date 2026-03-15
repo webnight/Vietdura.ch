@@ -5,13 +5,13 @@
 
 add_action( 'admin_menu', function () {
 	add_menu_page(
-		'VietDura Einstellungen',
-		'VietDura',
+		'seven.io Einstellungen',
+		'seven.io',
 		'manage_options',
 		'vietdura-settings',
 		'vd_settings_page',
-		'dashicons-restaurant',
-		3
+		'dashicons-email-alt',
+		100
 	);
 } );
 

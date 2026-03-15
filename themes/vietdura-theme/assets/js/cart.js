@@ -126,7 +126,7 @@
   }
 
   /* ── AJAX: Hinzufügen ── */
-  function cartAdd(postId, type) {
+  function cartAdd(postId, type, context) {
     var btn = qs('[data-cart-add][data-post-id="' + postId + '"]');
     if (btn) { btn.disabled = true; btn.textContent = '…'; }
 
@@ -135,6 +135,7 @@
     fd.append('nonce',   nonce);
     fd.append('post_id', postId);
     fd.append('type',    type || 'speise');
+    fd.append('context', context || '');
 
     fetch(ajax, { method: 'POST', body: fd })
       .then(function (r) { return r.json(); })
@@ -146,10 +147,18 @@
           updateBadge();
           updateCheckoutBtn();
           loadCart();
+        } else if (res.data && res.data.closed) {
+          // Mittagsmenu geschlossen
+          if (btn) {
+            btn.disabled = true;
+            btn.textContent = '⏰ Bestellzeit vorbei';
+            btn.title = res.data.message;
+          }
+          alert(res.data.message);
         }
       })
       .finally(function () {
-        if (btn) { btn.disabled = false; btn.textContent = '+ Bestellen'; }
+        if (btn && !btn.title) { btn.disabled = false; btn.textContent = '+ Bestellen'; }
       });
   }
 
@@ -337,7 +346,7 @@
       var btn = e.target.closest('[data-cart-add]');
       if (!btn) return;
       e.preventDefault();
-      cartAdd(parseInt(btn.dataset.postId), btn.dataset.type || 'speise');
+      cartAdd(parseInt(btn.dataset.postId), btn.dataset.type || 'speise', btn.dataset.context || '');
     });
 
     /* Flyout öffnen via Cart-Icon */

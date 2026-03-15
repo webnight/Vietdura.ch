@@ -1,0 +1,28 @@
+<?php
+
+namespace WP_SMS\Blocks;
+
+use WP_SMS;
+
+if (!defined('ABSPATH')) exit;
+
+class SubscribeBlock extends BlockAbstract
+{
+    protected $blockName = 'subscribe';
+    protected $blockVersion = '1.0';
+
+    protected function output($attributes)
+    {
+        return wp_sms_subscriber_form($attributes);
+    }
+
+    public function buildBlockAjaxData()
+    {
+        return [];
+    }
+
+    public function buildBlockAttributes($baseConfig)
+    {
+        return $baseConfig;
+    }
+}

@@ -1,0 +1,205 @@
+{
+    "key": "group_vd_speise_details",
+    "title": "Speise Details",
+    "fields": [
+        {
+            "key": "field_vd_speise_nummer",
+            "label": "Menü-Nr.",
+            "name": "menu_nummer",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "z.B. 12",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vd_speise_preis",
+            "label": "Preis (CHF)",
+            "name": "preis",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Nur bei Speisen ohne Varianten. z.B. \"24.50\"",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "24.50",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vd_speise_badge",
+            "label": "Hinweis",
+            "name": "badges",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "beliebt": "Beliebt",
+                "haus-hit": "Haus-Hit",
+                "neu": "Neu",
+                "vegetarisch": "Vegetarisch",
+                "scharf": "Scharf"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "layout": "horizontal",
+            "toggle": 0,
+            "allow_custom": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Add new choice"
+        },
+        {
+            "key": "field_vd_speise_allergene",
+            "label": "Allergene",
+            "name": "allergene",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "z.B. Gluten, Soja, Erdnüsse",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vd_speise_reihenfolge",
+            "label": "Reihenfolge",
+            "name": "reihenfolge",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 10,
+            "min": "",
+            "max": "",
+            "step": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vd_speise_highlight",
+            "label": "Auf Startseite anzeigen",
+            "name": "highlight",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Speise wird im Empfehlungs-Abschnitt auf der Startseite angezeigt.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Ja",
+            "ui_off_text": "Nein",
+            "message": ""
+        },
+        {
+            "key": "field_vd_speise_tages_menu",
+            "label": "🍜 Im Tagesmenu",
+            "name": "tages_menu",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Speise erscheint heute im Mittagsmenu auf der Website.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Ja – heute",
+            "ui_off_text": "Nein",
+            "message": ""
+        },
+        {
+            "key": "field_vd_speise_tages_preis",
+            "label": "Tagesmenu-Preis (CHF)",
+            "name": "tages_preis",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Sonderpreis für das Tagesmenu. Leer = normaler Preis wird verwendet.",
+            "required": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_vd_speise_tages_menu",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "18.50",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "speise"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1773610314
+}

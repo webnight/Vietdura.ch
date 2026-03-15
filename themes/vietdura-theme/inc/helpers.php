@@ -41,6 +41,9 @@ function vietdura_get_price( $post_id = false ): string {
  */
 function vietdura_badge_label( string $badge_slug ): string {
 	$map = [
+		'beliebt'     => 'Beliebt',
+		'haus-hit'    => 'Haus-Hit',
+		'neu'         => 'Neu',
 		'vegetarisch' => 'Vegetarisch',
 		'vegan'       => 'Vegan',
 		'scharf'      => 'Scharf',
@@ -145,6 +148,7 @@ function vietdura_render_menu_item( int $post_id ): void {
 					data-cart-add
 					data-post-id="<?php echo esc_attr( $post_id ); ?>"
 					data-type="speise"
+					data-context="speisekarte"
 					aria-label="<?php echo esc_attr( get_the_title() ); ?> in den Warenkorb">
 					+ Bestellen
 				</button>
@@ -228,10 +232,4 @@ function vietdura_get_geordnete_kategorien( string $taxonomy ): array {
  * @param mixed  $fallback    Rückgabewert wenn Feld leer oder ACF fehlt
  * @return mixed
  */
-function vietdura_option( string $field_name, $fallback = '' ) {
-	if ( ! function_exists( 'get_field' ) ) {
-		return $fallback;
-	}
-	$value = get_field( $field_name, 'options' );
-	return ( $value !== null && $value !== '' ) ? $value : $fallback;
-}
+// vietdura_option() ist in inc/theme-options.php definiert (wp_options, kein ACF nötig)

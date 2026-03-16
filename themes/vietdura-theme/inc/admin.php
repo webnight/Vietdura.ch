@@ -695,8 +695,9 @@ function vietdura_speise_columns( $columns ) {
 		}
 		$new[ $key ] = $value;
 	}
-	$new['speise_preis']     = 'Preis';
-	$new['speise_kategorie'] = 'Kategorie';
+	$new['speise_preis']        = 'Preis';
+	$new['speise_tagesmenu']    = '🍱 Mittagsmenü';
+	$new['speise_kategorie']    = 'Kategorie';
 	unset( $new['date'] );
 	return $new;
 }
@@ -730,6 +731,26 @@ function vietdura_speise_column_content( $column, $post_id ) {
 			echo '<span class="vd-inline-edit" data-post-id="' . esc_attr( $post_id ) . '" data-field="preis" title="Klicken zum Bearbeiten">'
 				. ( $preis !== '' && $preis !== false ? esc_html( $preis ) : '' )
 				. '</span>';
+			break;
+
+		case 'speise_tagesmenu':
+			$aktiv       = function_exists( 'get_field' ) ? get_field( 'tages_menu', $post_id ) : get_post_meta( $post_id, 'tages_menu', true );
+			$tages_preis = function_exists( 'get_field' ) ? get_field( 'tages_preis', $post_id ) : get_post_meta( $post_id, 'tages_preis', true );
+			$btn_style   = $aktiv
+				? 'color:#2f6b55;background:rgba(47,107,85,0.1);'
+				: 'color:#b35c3d;background:rgba(179,92,61,0.1);';
+			echo '<div style="display:inline-flex;align-items:center;gap:6px;" class="vd-tm-wrap" data-post-id="' . esc_attr( $post_id ) . '">';
+			echo '<button class="vd-toggle-tagesmenu" data-post-id="' . esc_attr( $post_id ) . '" data-active="' . ( $aktiv ? '1' : '0' ) . '" data-preis="' . esc_attr( $tages_preis ?: '' ) . '" '
+				. 'style="border:none;background:none;cursor:pointer;padding:3px 7px;border-radius:6px;font-size:0.75rem;font-weight:600;letter-spacing:0.03em;' . $btn_style . '">'
+				. ( $aktiv ? '● An' : '○ Aus' )
+				. '</button>';
+			if ( $aktiv ) {
+				echo '<span style="font-size:0.8rem;color:#555;">CHF</span>';
+				echo '<span class="vd-inline-edit" data-post-id="' . esc_attr( $post_id ) . '" data-field="tages_preis" title="Klicken zum Bearbeiten" style="min-width:4em;cursor:pointer;">'
+					. ( $tages_preis !== '' && $tages_preis !== false ? esc_html( $tages_preis ) : '<span style="color:#aaa;font-style:italic;">Preis…</span>' )
+					. '</span>';
+			}
+			echo '</div>';
 			break;
 
 		case 'speise_kategorie':
@@ -817,7 +838,7 @@ function vietdura_inline_edit_footer() {
 		$(document).on('click', '.vd-inline-edit', function(e){
 			var $span  = $(this);
 			if ( $span.find('input').length ) return;
-			var val    = $span.text().trim();
+			var val    = $span.find('span[style*="italic"]').length ? '' : $span.text().trim();
 			var postId = $span.data('post-id');
 			var field  = $span.data('field');
 			var narrow = (field === 'nummer');
@@ -832,7 +853,13 @@ function vietdura_inline_edit_footer() {
 				var newVal = $input.val().trim();
 				$.post(ajaxurl, { action:'vietdura_inline_save',
 					post_id:postId, field:field, value:newVal, nonce:nonce },
-					function(){ $span.empty().text(newVal); });
+					function(){
+						if (newVal) {
+							$span.empty().text(newVal);
+						} else {
+							$span.empty().append('<span style="color:#aaa;font-style:italic;">Preis…</span>');
+						}
+					});
 			}
 			$input.on('blur', save).on('keydown', function(e){
 				if (e.key==='Enter'){ e.preventDefault(); save(); }
@@ -978,6 +1005,48 @@ function vietdura_inline_edit_footer() {
 			});
 		});
 
+		// ── Mittagsmenü Toggle ────────────────────────────────────────────────
+		$(document).on('click', '.vd-toggle-tagesmenu', function(e){
+			e.stopPropagation();
+			var $btn   = $(this);
+			var postId = $btn.data('post-id');
+			$btn.prop('disabled', true).css('opacity','0.5');
+			$.post(ajaxurl, {
+				action: 'vietdura_toggle_tagesmenu',
+				post_id: postId,
+				nonce: nonce
+			}, function(r){
+				if (r.success) {
+					var nowActive = r.data.active;
+					$btn.data('active', nowActive ? '1' : '0')
+						.text(nowActive ? '● An' : '○ Aus')
+						.css({
+							color: nowActive ? '#2f6b55' : '#b35c3d',
+							background: nowActive ? 'rgba(47,107,85,0.1)' : 'rgba(179,92,61,0.1)',
+							opacity: '1'
+						}).prop('disabled', false);
+					// Preis-Feld ein-/ausblenden
+					var $wrap = $btn.closest('.vd-tm-wrap');
+					if (nowActive) {
+						var savedPreis = $btn.data('preis') || '';
+						if (!$wrap.find('.vd-inline-edit').length) {
+							var displayVal = savedPreis || '';
+							var spanHtml = savedPreis
+								? $('<span>').text(savedPreis).html()
+								: '<span style="color:#aaa;font-style:italic;">Preis…</span>';
+							$wrap.append('<span style="font-size:0.8rem;color:#555;"> CHF </span><span class="vd-inline-edit" data-post-id="' + postId + '" data-field="tages_preis" title="Klicken zum Bearbeiten" style="min-width:4em;cursor:pointer;">' + spanHtml + '</span>');
+						}
+					} else {
+						// aktuellen Preis merken bevor Feld entfernt wird
+						var currentPreis = $wrap.find('.vd-inline-edit').text().trim();
+						if (currentPreis) $btn.data('preis', currentPreis);
+						$wrap.find('.vd-inline-edit').prev('span').remove();
+						$wrap.find('.vd-inline-edit').remove();
+					}
+				}
+			});
+		});
+
 		// Versteckte Zeilen beim Laden abdunkeln
 		$('.vd-toggle-status[data-active="0"]').each(function(){
 			$(this).closest('tr').css('opacity','0.45');
@@ -1096,6 +1165,20 @@ function vietdura_ajax_toggle_status() {
 	wp_send_json_success( [ 'status' => $new ] );
 }
 add_action( 'wp_ajax_vietdura_toggle_status', 'vietdura_ajax_toggle_status' );
+
+
+// ─── AJAX: Mittagsmenü-Toggle ─────────────────────────────────────────────────
+
+function vietdura_ajax_toggle_tagesmenu() {
+	check_ajax_referer( 'vietdura_inline_edit', 'nonce' );
+	$post_id = (int) $_POST['post_id'];
+	if ( ! current_user_can( 'edit_post', $post_id ) ) wp_die( -1 );
+	$current = get_post_meta( $post_id, 'tages_menu', true );
+	$new     = $current ? '' : '1';
+	update_post_meta( $post_id, 'tages_menu', $new );
+	wp_send_json_success( [ 'active' => (bool) $new ] );
+}
+add_action( 'wp_ajax_vietdura_toggle_tagesmenu', 'vietdura_ajax_toggle_tagesmenu' );
 
 
 // ─── Metabox: Sichtbarkeit auf der Speise-Detail-Seite ────────────────────────

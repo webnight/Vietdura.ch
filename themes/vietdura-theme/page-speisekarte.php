@@ -38,6 +38,8 @@ get_header();
         </div>
     </section>
 
+    <?php get_template_part( 'template-parts/trust-bar' ); ?>
+
     <?php if ( $hat_kategorien ) : ?>
     <div class="menu-category-nav-wrap-placeholder"></div>
     <section class="menu-category-nav-wrap">

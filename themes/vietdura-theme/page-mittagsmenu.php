@@ -73,6 +73,16 @@ $tages_menue_posts = get_posts( [
 
         <?php else : ?>
 
+        <div class="menu-category-header">
+            <div class="menu-category-header-copy">
+                <span class="menu-category-eyebrow">Mittagsmenu</span>
+                <h2 class="menu-category-title">Heutige Gerichte</h2>
+            </div>
+            <div class="menu-category-meta">
+                <span class="menu-category-count"><?php echo count( $speisen_menu ) + count( $tages_menue_posts ); ?> Gerichte</span>
+            </div>
+        </div>
+
         <div class="menu-grid">
 
             <?php

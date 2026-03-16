@@ -32,7 +32,8 @@ if ( empty( $vd_oeffnungszeiten ) ) {
 <main class="site-main" id="main-content">
 
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section<?php vietdura_page_hero_bg_attrs(); ?>>
+        <?php vietdura_page_hero_overlay(); ?>
         <div class="container">
             <span class="section-kicker">Restaurant Vietdura · Tagelswangen ZH</span>
             <h1>Kontakt &amp; Anfahrt</h1>

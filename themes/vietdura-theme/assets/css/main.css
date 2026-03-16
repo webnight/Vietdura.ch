@@ -835,6 +835,23 @@ a {
     padding-bottom: 0;
     background: var(--color-cream);
 }
+.page-hero.hero--has-bg {
+    position: relative;
+    background-color: var(--color-green-dark);
+}
+.page-hero.hero--has-bg .container,
+.page-hero.hero--has-bg .container-narrow {
+    position: relative;
+    z-index: 1;
+}
+.page-hero.hero--has-bg h1,
+.page-hero.hero--has-bg p,
+.page-hero.hero--has-bg .section-kicker {
+    color: #fff;
+}
+.page-hero.hero--has-bg .section-kicker {
+    color: rgba(255,255,255,0.75);
+}
 
 .page-hero .section-heading {
     margin-bottom: 0;

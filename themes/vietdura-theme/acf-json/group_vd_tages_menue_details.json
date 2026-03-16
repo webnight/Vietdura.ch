@@ -1,6 +1,6 @@
 {
     "key": "group_vd_tages_menue_details",
-    "title": "Mittagsmenü",
+    "title": "Tages Menue Details",
     "fields": [
         {
             "key": "field_vd_tm_post_nummer",
@@ -130,6 +130,7 @@
     "instruction_placement": "label",
     "hide_on_screen": [
         "the_content",
+        "excerpt",
         "discussion",
         "comments",
         "revisions",
@@ -144,5 +145,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773615591
+    "modified": 1773624933
 }

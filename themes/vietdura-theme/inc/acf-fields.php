@@ -869,3 +869,53 @@ add_action( 'acf/init', function() {
         ],
     ] );
 } );
+
+
+// ── Seiten: Hintergrundbild für Hero ─────────────────────────────────────────
+add_action( 'acf/init', function() {
+    if ( ! function_exists( 'acf_add_local_field_group' ) ) return;
+
+    acf_add_local_field_group( [
+        'key'      => 'group_vd_page_hero',
+        'title'    => 'Hero-Hintergrundbild',
+        'location' => [ [ [ 'param' => 'post_type', 'operator' => '==', 'value' => 'page' ] ] ],
+        'position' => 'side',
+        'style'    => 'default',
+        'active'   => true,
+        'fields'   => [],
+    ] );
+
+    acf_add_local_field( [
+        'key'           => 'field_vd_page_hero_bg_image',
+        'label'         => 'Hintergrundbild',
+        'name'          => 'page_hero_bg_image',
+        'type'          => 'image',
+        'parent'        => 'group_vd_page_hero',
+        'instructions'  => 'Hero-Hintergrund. Empfohlen: min. 1920×800px.',
+        'required'      => 0,
+        'return_format' => 'array',
+        'preview_size'  => 'medium',
+        'library'       => 'all',
+        'menu_order'    => 1,
+    ] );
+
+    acf_add_local_field( [
+        'key'           => 'field_vd_page_hero_bg_opacity',
+        'label'         => 'Overlay-Deckkraft',
+        'name'          => 'page_hero_bg_opacity',
+        'type'          => 'select',
+        'parent'        => 'group_vd_page_hero',
+        'instructions'  => 'Dunkles Overlay über dem Bild.',
+        'required'      => 0,
+        'choices'       => [
+            '0.35' => 'Leicht',
+            '0.45' => 'Mittel-leicht',
+            '0.55' => 'Mittel',
+            '0.65' => 'Mittel-dunkel',
+            '0.75' => 'Dunkel',
+        ],
+        'default_value' => '0.55',
+        'return_format' => 'value',
+        'menu_order'    => 2,
+    ] );
+} );

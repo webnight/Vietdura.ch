@@ -1,0 +1,96 @@
+{
+    "key": "group_vd_page_hero",
+    "title": "Hero-Hintergrundbild",
+    "fields": [
+        {
+            "key": "field_vd_page_hero_bg_image",
+            "label": "Hintergrundbild",
+            "name": "page_hero_bg_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Hero-Hintergrund. Empfohlen: min. 1920x800px.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_vd_page_hero_bg_opacity",
+            "label": "Overlay-Deckkraft",
+            "name": "page_hero_bg_opacity",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Dunkles Overlay über dem Bild.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "0.35": "Leicht",
+                "0.45": "Mittel-leicht",
+                "0.55": "Mittel",
+                "0.65": "Mittel-dunkel",
+                "0.75": "Dunkel"
+            },
+            "default_value": "0.55",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "revisions",
+        "slug",
+        "author",
+        "format",
+        "page_attributes",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1773624155
+}

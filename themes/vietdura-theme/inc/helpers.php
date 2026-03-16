@@ -233,3 +233,52 @@ function vietdura_get_geordnete_kategorien( string $taxonomy ): array {
  * @return mixed
  */
 // vietdura_option() ist in inc/theme-options.php definiert (wp_options, kein ACF nötig)
+
+
+/**
+ * Hero-Hintergrundbild-Attribute für eine Seite zurückgeben.
+ * Gibt Array zurück: ['url' => '...', 'opacity' => '0.55']
+ * Leeres Array wenn kein Bild gesetzt.
+ *
+ * @param int|null $post_id
+ * @return array
+ */
+function vietdura_get_page_hero_bg( ?int $post_id = null ): array {
+    if ( ! function_exists( 'get_field' ) ) return [];
+    $post_id = $post_id ?: get_the_ID();
+    $image   = get_field( 'page_hero_bg_image', $post_id );
+    if ( ! $image ) return [];
+    $url     = is_array( $image ) ? ( $image['url'] ?? '' ) : wp_get_attachment_url( $image );
+    if ( ! $url ) return [];
+    return [
+        'url'     => $url,
+        'opacity' => get_field( 'page_hero_bg_opacity', $post_id ) ?: '0.55',
+    ];
+}
+
+/**
+ * Hero-Hintergrundbild-Attribute als HTML-Attribute ausgeben.
+ * Gibt style und class-Zusatz zurück, direkt im section-Tag nutzbar.
+ *
+ * @param int|null $post_id
+ */
+function vietdura_page_hero_bg_attrs( ?int $post_id = null ): void {
+    $bg = vietdura_get_page_hero_bg( $post_id );
+    if ( $bg ) {
+        echo ' class="page-hero section hero--has-bg" style="background-image:url(' . esc_url( $bg['url'] ) . ');"';
+    } else {
+        echo ' class="page-hero section"';
+    }
+}
+
+/**
+ * Hero-Overlay ausgeben (nur wenn Hintergrundbild vorhanden).
+ *
+ * @param int|null $post_id
+ */
+function vietdura_page_hero_overlay( ?int $post_id = null ): void {
+    $bg = vietdura_get_page_hero_bg( $post_id );
+    if ( $bg ) {
+        echo '<div class="hero-overlay" style="--hero-overlay-opacity:' . esc_attr( $bg['opacity'] ) . ';"></div>';
+    }
+}

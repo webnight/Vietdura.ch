@@ -1,0 +1,75 @@
+{
+    "key": "group_vd_getraenk",
+    "title": "Getränk Details",
+    "fields": [
+        {
+            "key": "field_vd_getraenk_preis",
+            "label": "Preis (CHF)",
+            "name": "preis",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Nur die Zahl, ohne Währung – z.B. \"5.50\"",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "5.50",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vd_getraenk_volumen",
+            "label": "Volumen",
+            "name": "volumen",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "z.B. \"3 dl\", \"0.5 l\", \"33 cl\"",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "3 dl",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "getraenk"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "comments",
+        "revisions",
+        "slug",
+        "author",
+        "format",
+        "page_attributes",
+        "tags"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1773624505
+}

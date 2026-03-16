@@ -28,7 +28,8 @@ get_header();
 
 <main class="site-main">
 
-    <section class="page-hero section" id="speisekarte-start">
+    <section id="speisekarte-start"<?php vietdura_page_hero_bg_attrs(); ?>>
+        <?php vietdura_page_hero_overlay(); ?>
         <div class="container">
             <div class="section-heading">
                 <span class="section-kicker">Unsere Küche</span>

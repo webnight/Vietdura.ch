@@ -8,8 +8,8 @@
             "name": "empfehlung_aktiv",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "EIN = Banner erscheint auf der Homepage. AUS = unsichtbar.",
-            "required": 0,
+            "instructions": "EIN = Empfehlungs-Banner erscheint auf der Homepage. AUS = unsichtbar.",
+            "required": false,
             "conditional_logic": false,
             "wrapper": {
                 "width": "",
@@ -24,12 +24,12 @@
         },
         {
             "key": "field_vd_emp_badge",
-            "label": "Badge (z.B. Heute, Neu, Saisonal)",
+            "label": "Badge",
             "name": "empfehlung_badge",
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": false,
             "conditional_logic": [
                 [
                     {
@@ -85,7 +85,7 @@
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
-            "required": 0,
+            "required": false,
             "conditional_logic": [
                 [
                     {
@@ -113,7 +113,7 @@
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": false,
             "conditional_logic": [
                 [
                     {
@@ -141,7 +141,7 @@
             "aria-label": "",
             "type": "image",
             "instructions": "Empfohlen: 3:2 Format, min. 600x400px.",
-            "required": 0,
+            "required": false,
             "conditional_logic": [
                 [
                     {
@@ -171,13 +171,6 @@
     "location": [
         [
             {
-                "param": "page",
-                "operator": "==",
-                "value": "175"
-            }
-        ],
-        [
-            {
                 "param": "post_type",
                 "operator": "==",
                 "value": "empfehlung"
@@ -189,10 +182,23 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "revisions",
+        "author",
+        "format",
+        "page_attributes",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
     "active": true,
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773609698
+    "modified": 1773624832
 }

@@ -1,0 +1,1436 @@
+[
+  {
+    "key": "group_vd_bestellsystem",
+    "title": "Bestellsystem & Benachrichtigungen",
+    "fields": [
+      {
+        "key": "field_vd_tab_twint",
+        "label": "Zahlung",
+        "name": "",
+        "aria-label": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0,
+        "selected": 0
+      },
+      {
+        "key": "field_vd_twint_nummer",
+        "label": "Twint-Nummer",
+        "name": "vd_twint_nummer",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "Wird in der Bestätigungs-E-Mail an den Kunden angezeigt.",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "+41 79 000 00 00",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_restaurant_email",
+        "label": "Restaurant E-Mail",
+        "name": "vd_restaurant_email",
+        "aria-label": "",
+        "type": "email",
+        "instructions": "Neue Bestellungen werden an diese Adresse gesendet.",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "info@vietdura.ch",
+        "default_value": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_reservierung_url",
+        "label": "Reservierung URL",
+        "name": "vd_reservierung_url",
+        "aria-label": "",
+        "type": "url",
+        "instructions": "Link des Reservation-Buttons im Header.",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "tel:+41449409999",
+        "default_value": ""
+      },
+      {
+        "key": "field_vd_tab_sevenio",
+        "label": "WhatsApp / SMS (seven.io)",
+        "name": "",
+        "aria-label": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0,
+        "selected": 0
+      },
+      {
+        "key": "field_vd_sevenio_api_key",
+        "label": "seven.io API-Key",
+        "name": "vd_sevenio_api_key",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "API-Key aus app.seven.io → Einstellungen → API.",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "Ihr seven.io API-Key",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_restaurant_telefon",
+        "label": "Restaurant Telefon (Empfänger)",
+        "name": "vd_restaurant_telefon",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "Nummer die WhatsApp/SMS empfängt. Mit Ländervorwahl, ohne Leerzeichen (z.B. +41791234567).",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "+41791234567",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_notify_channel",
+        "label": "Kanal",
+        "name": "vd_notify_channel",
+        "aria-label": "",
+        "type": "select",
+        "instructions": "Benachrichtigungskanal für neue Bestellungen.",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "whatsapp": "WhatsApp",
+          "sms": "SMS"
+        },
+        "default_value": "whatsapp",
+        "multiple": 0,
+        "allow_null": 0,
+        "ui": 0,
+        "ajax": 0,
+        "placeholder": "",
+        "return_format": "value",
+        "create_options": 0,
+        "save_options": 0
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "options_page",
+          "operator": "==",
+          "value": "vietdura-bestellsystem"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1773623360
+  },
+  {
+    "key": "group_vd_deklaration",
+    "title": "Deklaration & Herkunft",
+    "fields": [
+      {
+        "key": "field_vd_dekl_intro",
+        "label": "Einleitungstext",
+        "name": "dekl_intro",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "Kurzer Einleitungstext für die Deklarationsseite",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "rows": 4,
+        "new_lines": "wpautop",
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": ""
+      },
+      {
+        "key": "field_vd_dekl_eintraege",
+        "label": "Herkunftsangaben",
+        "name": "dekl_eintraege",
+        "aria-label": "",
+        "type": "repeater",
+        "instructions": "Produkt und dessen Herkunft eintragen",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "min": 0,
+        "layout": "table",
+        "button_label": "Eintrag hinzufügen",
+        "sub_fields": [
+          {
+            "key": "field_vd_dekl_produkt",
+            "label": "Produkt",
+            "name": "produkt",
+            "type": "text",
+            "required": 1,
+            "placeholder": "z.B. Rindfleisch",
+            "wrapper": {
+              "width": "35",
+              "class": "",
+              "id": ""
+            }
+          },
+          {
+            "key": "field_vd_dekl_herkunft",
+            "label": "Herkunft / Land",
+            "name": "herkunft",
+            "type": "text",
+            "required": 1,
+            "placeholder": "z.B. Schweiz",
+            "wrapper": {
+              "width": "30",
+              "class": "",
+              "id": ""
+            }
+          },
+          {
+            "key": "field_vd_dekl_hinweis",
+            "label": "Hinweis",
+            "name": "hinweis",
+            "type": "text",
+            "required": 0,
+            "placeholder": "optional",
+            "wrapper": {
+              "width": "35",
+              "class": "",
+              "id": ""
+            }
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "post"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+      "the_content",
+      "comments",
+      "revisions",
+      "author"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1773623372
+  },
+  {
+    "key": "group_vd_empfehlung",
+    "title": "Tagesempfehlung",
+    "fields": [
+      {
+        "key": "field_vd_emp_aktiv",
+        "label": "Empfehlung anzeigen",
+        "name": "empfehlung_aktiv",
+        "aria-label": "",
+        "type": "true_false",
+        "instructions": "EIN = Empfehlungs-Banner erscheint auf der Homepage. AUS = unsichtbar.",
+        "required": false,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": 0,
+        "ui": 1,
+        "ui_on_text": "Ja – anzeigen",
+        "ui_off_text": "Nein – ausblenden",
+        "message": ""
+      },
+      {
+        "key": "field_vd_emp_badge",
+        "label": "Badge",
+        "name": "empfehlung_badge",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": false,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_vd_emp_aktiv",
+              "operator": "==",
+              "value": "1"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "40",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "Heute empfohlen",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_emp_titel",
+        "label": "Titel / Gerichtname",
+        "name": "empfehlung_titel",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_vd_emp_aktiv",
+              "operator": "==",
+              "value": "1"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "60",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "z.B. Bun Bowl Special",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_emp_text",
+        "label": "Kurzbeschreibung",
+        "name": "empfehlung_text",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": false,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_vd_emp_aktiv",
+              "operator": "==",
+              "value": "1"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "rows": 2,
+        "new_lines": "",
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": ""
+      },
+      {
+        "key": "field_vd_emp_preis",
+        "label": "Preis (nur Zahl, z.B. 26.50)",
+        "name": "empfehlung_preis",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": false,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_vd_emp_aktiv",
+              "operator": "==",
+              "value": "1"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "30",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "26.50",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_emp_bild",
+        "label": "Bild",
+        "name": "empfehlung_bild",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "Empfohlen: 3:2 Format, min. 600x400px.",
+        "required": false,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_vd_emp_aktiv",
+              "operator": "==",
+              "value": "1"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array",
+        "preview_size": "medium",
+        "library": "all",
+        "min_width": 0,
+        "min_height": 0,
+        "min_size": 0,
+        "max_width": 0,
+        "max_height": 0,
+        "max_size": 0,
+        "mime_types": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "options_page",
+          "operator": "==",
+          "value": "vietdura-empfehlung"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1773623236
+  },
+  {
+    "key": "group_vd_getraenk",
+    "title": "Getränk Details",
+    "fields": [
+      {
+        "key": "field_vd_getraenk_preis",
+        "label": "Preis (CHF)",
+        "name": "preis",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "Nur die Zahl, ohne Währung – z.B. \"5.50\"",
+        "required": 1,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "30",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "5.50",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_getraenk_volumen",
+        "label": "Volumen",
+        "name": "volumen",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "z.B. \"3 dl\", \"0.5 l\", \"33 cl\"",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "30",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "3 dl",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "getraenk"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+      "the_content",
+      "comments",
+      "revisions",
+      "slug",
+      "author",
+      "format",
+      "page_attributes",
+      "tags"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1773623385
+  },
+  {
+    "key": "group_vd_page_hero",
+    "title": "Hero-Hintergrundbild",
+    "fields": [
+      {
+        "key": "field_vd_page_hero_bg_image",
+        "label": "Hintergrundbild",
+        "name": "page_hero_bg_image",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "Hero-Hintergrund. Empfohlen: min. 1920x800px.",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array",
+        "preview_size": "medium",
+        "library": "all",
+        "min_width": 0,
+        "min_height": 0,
+        "min_size": 0,
+        "max_width": 0,
+        "max_height": 0,
+        "max_size": 0,
+        "mime_types": ""
+      },
+      {
+        "key": "field_vd_page_hero_bg_opacity",
+        "label": "Overlay-Deckkraft",
+        "name": "page_hero_bg_opacity",
+        "aria-label": "",
+        "type": "select",
+        "instructions": "Dunkles Overlay über dem Bild.",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "0.35": "Leicht",
+          "0.45": "Mittel-leicht",
+          "0.55": "Mittel",
+          "0.65": "Mittel-dunkel",
+          "0.75": "Dunkel"
+        },
+        "default_value": "0.55",
+        "return_format": "value",
+        "multiple": 0,
+        "allow_null": 0,
+        "ui": 0,
+        "ajax": 0,
+        "placeholder": "",
+        "create_options": 0,
+        "save_options": 0
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "page"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1773623398
+  },
+  {
+    "key": "group_vd_speise_details",
+    "title": "Speise Details",
+    "fields": [
+      {
+        "key": "field_vd_speise_nummer",
+        "label": "Menü-Nr.",
+        "name": "menu_nummer",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": false,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "20",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "z.B. 12",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_speise_preis",
+        "label": "Preis (CHF)",
+        "name": "preis",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "Nur bei Speisen ohne Varianten. z.B. \"24.50\"",
+        "required": false,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "30",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "24.50",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_speise_badge",
+        "label": "Hinweis",
+        "name": "badges",
+        "aria-label": "",
+        "type": "checkbox",
+        "instructions": "",
+        "required": false,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "beliebt": "Beliebt",
+          "haus-hit": "Haus-Hit",
+          "neu": "Neu",
+          "vegetarisch": "Vegetarisch",
+          "scharf": "Scharf"
+        },
+        "default_value": [],
+        "return_format": "value",
+        "layout": "horizontal",
+        "toggle": 0,
+        "allow_custom": 0,
+        "save_custom": 0,
+        "custom_choice_button_text": "Add new choice"
+      },
+      {
+        "key": "field_vd_speise_allergene",
+        "label": "Allergene",
+        "name": "allergene",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": false,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "z.B. Gluten, Soja, Erdnüsse",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_speise_reihenfolge",
+        "label": "Reihenfolge",
+        "name": "reihenfolge",
+        "aria-label": "",
+        "type": "number",
+        "instructions": "",
+        "required": false,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "default_value": 10,
+        "min": "",
+        "max": "",
+        "step": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_speise_highlight",
+        "label": "Auf Startseite anzeigen",
+        "name": "highlight",
+        "aria-label": "",
+        "type": "true_false",
+        "instructions": "Speise wird im Empfehlungs-Abschnitt auf der Startseite angezeigt.",
+        "required": false,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": 0,
+        "ui": 1,
+        "ui_on_text": "Ja",
+        "ui_off_text": "Nein",
+        "message": ""
+      },
+      {
+        "key": "field_vd_speise_tages_menu",
+        "label": "Im Tagesmenu",
+        "name": "tages_menu",
+        "aria-label": "",
+        "type": "true_false",
+        "instructions": "Speise erscheint heute im Mittagsmenu auf der Website.",
+        "required": false,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": 0,
+        "ui": 1,
+        "ui_on_text": "Ja – heute",
+        "ui_off_text": "Nein",
+        "message": ""
+      },
+      {
+        "key": "field_vd_speise_tages_preis",
+        "label": "Tagesmenu-Preis (CHF)",
+        "name": "tages_preis",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "Sonderpreis für das Tagesmenu. Leer = normaler Preis wird verwendet.",
+        "required": false,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_vd_speise_tages_menu",
+              "operator": "==",
+              "value": "1"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "18.50",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "speise"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1773623236
+  },
+  {
+    "key": "group_vd_startseite",
+    "title": "Startseite",
+    "fields": [
+      {
+        "key": "field_vd_hero_text_tab",
+        "label": "Hero-Inhalt",
+        "name": "",
+        "aria-label": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0,
+        "selected": 0
+      },
+      {
+        "key": "field_vd_hero_eyebrow",
+        "label": "Eyebrow (Kicker über dem Titel)",
+        "name": "hero_eyebrow",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "Modernes vietnamesisches Restaurant in Tagelswangen",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_hero_titel",
+        "label": "Hero-Titel",
+        "name": "hero_titel",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "Zeilenumbruch mit | markieren, z.B. \"Frisch. Authentisch.|Modern interpretiert.\"",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "Frisch. Authentisch.|Modern interpretiert.",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_hero_text",
+        "label": "Hero-Text",
+        "name": "hero_text",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "rows": 3,
+        "new_lines": "",
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": ""
+      },
+      {
+        "key": "field_vd_hero_btn1_text",
+        "label": "Button 1 – Text",
+        "name": "hero_btn1_text",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "Speisekarte ansehen",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_hero_btn1_url",
+        "label": "Button 1 – URL",
+        "name": "hero_btn1_url",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "/speisekarte",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_hero_btn2_text",
+        "label": "Button 2 – Text",
+        "name": "hero_btn2_text",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "Tisch reservieren",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_hero_btn2_url",
+        "label": "Button 2 – URL",
+        "name": "hero_btn2_url",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "/reservieren",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_hero_bg_tab",
+        "label": "Hintergrundbild",
+        "name": "",
+        "aria-label": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0,
+        "selected": 0
+      },
+      {
+        "key": "field_vd_hero_bg_image",
+        "label": "Hintergrundbild",
+        "name": "hero_bg_image",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "Wird als Hero-Hintergrund verwendet. Empfohlen: min. 1920x800px.",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array",
+        "preview_size": "medium",
+        "library": "all",
+        "min_width": 0,
+        "min_height": 0,
+        "min_size": 0,
+        "max_width": 0,
+        "max_height": 0,
+        "max_size": 0,
+        "mime_types": ""
+      },
+      {
+        "key": "field_vd_hero_bg_overlay_opacity",
+        "label": "Overlay-Deckkraft",
+        "name": "hero_bg_overlay_opacity",
+        "aria-label": "",
+        "type": "select",
+        "instructions": "Grünes Overlay über dem Hintergrundbild. Höherer Wert = dunkler.",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "0.35": "Leicht (0.35)",
+          "0.45": "Mittel-leicht (0.45)",
+          "0.55": "Mittel (0.55)",
+          "0.65": "Mittel-dunkel (0.65)",
+          "0.75": "Dunkel (0.75)"
+        },
+        "default_value": "0.55",
+        "return_format": "value",
+        "multiple": 0,
+        "allow_null": 0,
+        "ui": 0,
+        "ajax": 0,
+        "placeholder": "",
+        "create_options": 0,
+        "save_options": 0
+      },
+      {
+        "key": "field_vd_hero_card_tab",
+        "label": "Empfehlungs-Karte",
+        "name": "",
+        "aria-label": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0,
+        "selected": 0
+      },
+      {
+        "key": "field_vd_hero_show_featured_card",
+        "label": "Empfehlungs-Karte anzeigen",
+        "name": "hero_show_featured_card",
+        "aria-label": "",
+        "type": "true_false",
+        "instructions": "Karte rechts im Hero ein- oder ausblenden.",
+        "required": 0,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": 1,
+        "ui": 1,
+        "ui_on_text": "Ja",
+        "ui_off_text": "Nein",
+        "message": ""
+      },
+      {
+        "key": "field_vd_hero_featured_image",
+        "label": "Bild der Karte",
+        "name": "hero_featured_image",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "Bild für die Empfehlungs-Karte. Empfohlen: 3:2 Format.",
+        "required": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_vd_hero_show_featured_card",
+              "operator": "==",
+              "value": "1"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array",
+        "preview_size": "thumbnail",
+        "library": "all",
+        "min_width": 0,
+        "min_height": 0,
+        "min_size": 0,
+        "max_width": 0,
+        "max_height": 0,
+        "max_size": 0,
+        "mime_types": ""
+      },
+      {
+        "key": "field_vd_hero_featured_badge",
+        "label": "Badge-Text",
+        "name": "hero_featured_badge",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_vd_hero_show_featured_card",
+              "operator": "==",
+              "value": "1"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "Empfohlen",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_hero_featured_title",
+        "label": "Titel der Karte",
+        "name": "hero_featured_title",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_vd_hero_show_featured_card",
+              "operator": "==",
+              "value": "1"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "z.B. Bun Bowl Special",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_hero_featured_text",
+        "label": "Beschreibung",
+        "name": "hero_featured_text",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_vd_hero_show_featured_card",
+              "operator": "==",
+              "value": "1"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "rows": 2,
+        "new_lines": "",
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": ""
+      },
+      {
+        "key": "field_vd_hero_featured_price",
+        "label": "Preis",
+        "name": "hero_featured_price",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "Nur die Zahl, ohne Währung – z.B. \"26.50\"",
+        "required": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_vd_hero_show_featured_card",
+              "operator": "==",
+              "value": "1"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "30",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "26.50",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "page_type",
+          "operator": "==",
+          "value": "front_page"
+        }
+      ],
+      [
+        {
+          "param": "options_page",
+          "operator": "==",
+          "value": "vietdura-startseite"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1773623236
+  },
+  {
+    "key": "group_vd_tages_menue_details",
+    "title": "Tages Menue Details",
+    "fields": [
+      {
+        "key": "field_vd_tm_post_nummer",
+        "label": "Menü-Nr.",
+        "name": "menu_nummer",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": false,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "20",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "z.B. 12",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_tm_post_preis",
+        "label": "Preis (CHF)",
+        "name": "preis",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "z.B. \"18.50\"",
+        "required": false,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "30",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "18.50",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_tm_post_badge",
+        "label": "Hinweis",
+        "name": "badges",
+        "aria-label": "",
+        "type": "checkbox",
+        "instructions": "",
+        "required": false,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "beliebt": "Beliebt",
+          "haus-hit": "Haus-Hit",
+          "neu": "Neu",
+          "vegetarisch": "Vegetarisch",
+          "scharf": "Scharf"
+        },
+        "default_value": [],
+        "return_format": "value",
+        "layout": "horizontal",
+        "toggle": 0,
+        "allow_custom": 0,
+        "save_custom": 0,
+        "custom_choice_button_text": "Add new choice"
+      },
+      {
+        "key": "field_vd_tm_post_allergene",
+        "label": "Allergene",
+        "name": "allergene",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": false,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "placeholder": "z.B. Gluten, Soja, Erdnüsse",
+        "default_value": "",
+        "maxlength": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_vd_tm_post_reihenfolge",
+        "label": "Reihenfolge",
+        "name": "reihenfolge",
+        "aria-label": "",
+        "type": "number",
+        "instructions": "",
+        "required": false,
+        "conditional_logic": false,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "default_value": 10,
+        "min": "",
+        "max": "",
+        "step": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "mittagsmenu"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1773623236
+  }
+]

@@ -135,7 +135,7 @@
         },
         {
             "key": "field_vd_speise_tages_menu",
-            "label": "🍜 Im Tagesmenu",
+            "label": "Im Tagesmenu",
             "name": "tages_menu",
             "aria-label": "",
             "type": "true_false",
@@ -201,5 +201,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1773610314
+    "modified": 1773623938
 }

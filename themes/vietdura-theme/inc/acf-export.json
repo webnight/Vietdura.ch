@@ -1,335 +1,160 @@
 [
   {
-    "key": "group_vd_speise",
+    "key": "group_vd_speise_details",
     "title": "Speise Details",
     "fields": [
-      {
-        "key": "field_vd_speise_nummer",
-        "label": "Nummer",
-        "name": "nummer",
-        "type": "text",
-        "instructions": "Sortier- und Anzeigenummer, z.B. \"01\"",
-        "required": 0,
-        "placeholder": "01",
-        "maxlength": 4,
-        "wrapper": { "width": "20", "class": "", "id": "" }
-      },
-      {
-        "key": "field_vd_speise_preis",
-        "label": "Preis (CHF)",
-        "name": "preis",
-        "type": "text",
-        "instructions": "Nur die Zahl, ohne W\u00e4hrung \u2013 z.B. \"24.50\"",
-        "required": 1,
-        "placeholder": "24.50",
-        "wrapper": { "width": "30", "class": "", "id": "" }
-      },
-      {
-        "key": "field_vd_speise_highlight",
-        "label": "Auf Startseite hervorheben",
-        "name": "highlight",
-        "type": "true_false",
-        "instructions": "Speise erscheint im Highlight-Bereich der Startseite",
-        "default_value": 0,
-        "ui": 1,
-        "ui_on_text": "Ja",
-        "ui_off_text": "Nein",
-        "wrapper": { "width": "50", "class": "", "id": "" }
-      },
-      {
-        "key": "field_vd_speise_badges",
-        "label": "Badges",
-        "name": "badges",
-        "type": "checkbox",
-        "instructions": "Mehrfachauswahl m\u00f6glich",
-        "required": 0,
-        "choices": {
-          "vegetarisch": "Vegetarisch",
-          "vegan": "Vegan",
-          "scharf": "Scharf"
-        },
-        "layout": "horizontal",
-        "return_format": "value"
-      }
+      { "key": "field_vd_speise_nummer", "label": "Menü-Nr.", "name": "menu_nummer", "type": "text", "placeholder": "z.B. 12", "wrapper": { "width": "20" }, "menu_order": 0 },
+      { "key": "field_vd_speise_preis", "label": "Preis (CHF)", "name": "preis", "type": "text", "instructions": "Nur bei Speisen ohne Varianten. z.B. \"24.50\"", "placeholder": "24.50", "wrapper": { "width": "30" }, "menu_order": 1 },
+      { "key": "field_vd_speise_badge", "label": "Hinweis", "name": "badges", "type": "checkbox", "choices": { "beliebt": "Beliebt", "haus-hit": "Haus-Hit", "neu": "Neu", "vegetarisch": "Vegetarisch", "scharf": "Scharf" }, "default_value": [], "return_format": "value", "layout": "horizontal", "toggle": 0, "wrapper": { "width": "50" }, "menu_order": 2 },
+      { "key": "field_vd_speise_allergene", "label": "Allergene", "name": "allergene", "type": "text", "placeholder": "z.B. Gluten, Soja, Erdnüsse", "wrapper": { "width": "50" }, "menu_order": 3 },
+      { "key": "field_vd_speise_reihenfolge", "label": "Reihenfolge", "name": "reihenfolge", "type": "number", "default_value": 10, "wrapper": { "width": "25" }, "menu_order": 4 },
+      { "key": "field_vd_speise_highlight", "label": "Auf Startseite anzeigen", "name": "highlight", "type": "true_false", "instructions": "Speise wird im Empfehlungs-Abschnitt auf der Startseite angezeigt.", "default_value": 0, "ui": 1, "ui_on_text": "Ja", "ui_off_text": "Nein", "wrapper": { "width": "50" }, "menu_order": 5 },
+      { "key": "field_vd_speise_tages_menu", "label": "Im Tagesmenu", "name": "tages_menu", "type": "true_false", "instructions": "Speise erscheint heute im Mittagsmenu auf der Website.", "default_value": 0, "ui": 1, "ui_on_text": "Ja – heute", "ui_off_text": "Nein", "wrapper": { "width": "50" }, "menu_order": 6 },
+      { "key": "field_vd_speise_tages_preis", "label": "Tagesmenu-Preis (CHF)", "name": "tages_preis", "type": "text", "instructions": "Sonderpreis für das Tagesmenu. Leer = normaler Preis wird verwendet.", "placeholder": "18.50", "wrapper": { "width": "50" }, "conditional_logic": [ [ { "field": "field_vd_speise_tages_menu", "operator": "==", "value": "1" } ] ], "menu_order": 7 }
     ],
-    "location": [
-      [ { "param": "post_type", "operator": "==", "value": "speise" } ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": ["the_content", "discussion_id", "comments", "revisions", "slug", "author", "format", "page_attributes", "tags"],
-    "active": true
-  },
-  {
-    "key": "group_vd_getraenk",
-    "title": "Getr\u00e4nk Details",
-    "fields": [
-      {
-        "key": "field_vd_getraenk_preis",
-        "label": "Preis (CHF)",
-        "name": "preis",
-        "type": "text",
-        "instructions": "Nur die Zahl, ohne W\u00e4hrung \u2013 z.B. \"5.50\"",
-        "required": 1,
-        "placeholder": "5.50",
-        "wrapper": { "width": "30", "class": "", "id": "" }
-      },
-      {
-        "key": "field_vd_getraenk_volumen",
-        "label": "Volumen",
-        "name": "volumen",
-        "type": "text",
-        "instructions": "z.B. \"3 dl\", \"0.5 l\", \"33 cl\"",
-        "required": 0,
-        "placeholder": "3 dl",
-        "wrapper": { "width": "30", "class": "", "id": "" }
-      }
-    ],
-    "location": [
-      [ { "param": "post_type", "operator": "==", "value": "getraenk" } ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": ["the_content", "discussion_id", "comments", "revisions", "slug", "author", "format", "page_attributes", "tags"],
-    "active": true
+    "location": [ [ { "param": "post_type", "operator": "==", "value": "speise" } ] ],
+    "menu_order": 0, "position": "normal", "style": "default", "label_placement": "top", "instruction_placement": "label", "active": true
   },
   {
     "key": "group_vd_startseite",
     "title": "Startseite",
     "fields": [
-      {
-        "key": "field_vd_hero_eyebrow",
-        "label": "Eyebrow (Kicker \u00fcber dem Titel)",
-        "name": "hero_eyebrow",
-        "type": "text",
-        "placeholder": "Modernes vietnamesisches Restaurant in Tagelswangen",
-        "required": 0
-      },
-      {
-        "key": "field_vd_hero_titel",
-        "label": "Hero-Titel",
-        "name": "hero_titel",
-        "type": "text",
-        "instructions": "Zeilenumbruch mit | markieren, z.B. \"Frisch. Authentisch.|Modern interpretiert.\"",
-        "placeholder": "Frisch. Authentisch.|Modern interpretiert.",
-        "required": 0
-      },
-      {
-        "key": "field_vd_hero_text",
-        "label": "Hero-Text",
-        "name": "hero_text",
-        "type": "textarea",
-        "rows": 3,
-        "new_lines": "",
-        "required": 0
-      },
-      {
-        "key": "field_vd_hero_btn1_text",
-        "label": "Button 1 \u2013 Text",
-        "name": "hero_btn1_text",
-        "type": "text",
-        "placeholder": "Speisekarte ansehen",
-        "required": 0,
-        "wrapper": { "width": "50", "class": "", "id": "" }
-      },
-      {
-        "key": "field_vd_hero_btn1_url",
-        "label": "Button 1 \u2013 URL",
-        "name": "hero_btn1_url",
-        "type": "text",
-        "placeholder": "/speisekarte",
-        "required": 0,
-        "wrapper": { "width": "50", "class": "", "id": "" }
-      },
-      {
-        "key": "field_vd_hero_btn2_text",
-        "label": "Button 2 \u2013 Text",
-        "name": "hero_btn2_text",
-        "type": "text",
-        "placeholder": "Tisch reservieren",
-        "required": 0,
-        "wrapper": { "width": "50", "class": "", "id": "" }
-      },
-      {
-        "key": "field_vd_hero_btn2_url",
-        "label": "Button 2 \u2013 URL",
-        "name": "hero_btn2_url",
-        "type": "text",
-        "placeholder": "/reservieren",
-        "required": 0,
-        "wrapper": { "width": "50", "class": "", "id": "" }
-      }
+      { "key": "field_vd_hero_text_tab", "label": "Hero-Inhalt", "name": "hero_text_tab", "type": "tab", "placement": "top", "endpoint": 0, "menu_order": 0 },
+      { "key": "field_vd_hero_eyebrow", "label": "Eyebrow (Kicker über dem Titel)", "name": "hero_eyebrow", "type": "text", "placeholder": "Modernes vietnamesisches Restaurant in Tagelswangen", "required": 0, "menu_order": 1 },
+      { "key": "field_vd_hero_titel", "label": "Hero-Titel", "name": "hero_titel", "type": "text", "instructions": "Zeilenumbruch mit | markieren, z.B. \"Frisch. Authentisch.|Modern interpretiert.\"", "placeholder": "Frisch. Authentisch.|Modern interpretiert.", "required": 0, "menu_order": 2 },
+      { "key": "field_vd_hero_text", "label": "Hero-Text", "name": "hero_text", "type": "textarea", "rows": 3, "new_lines": "", "required": 0, "menu_order": 3 },
+      { "key": "field_vd_hero_btn1_text", "label": "Button 1 – Text", "name": "hero_btn1_text", "type": "text", "placeholder": "Speisekarte ansehen", "required": 0, "wrapper": { "width": "50" }, "menu_order": 4 },
+      { "key": "field_vd_hero_btn1_url", "label": "Button 1 – URL", "name": "hero_btn1_url", "type": "text", "placeholder": "/speisekarte", "required": 0, "wrapper": { "width": "50" }, "menu_order": 5 },
+      { "key": "field_vd_hero_btn2_text", "label": "Button 2 – Text", "name": "hero_btn2_text", "type": "text", "placeholder": "Tisch reservieren", "required": 0, "wrapper": { "width": "50" }, "menu_order": 6 },
+      { "key": "field_vd_hero_btn2_url", "label": "Button 2 – URL", "name": "hero_btn2_url", "type": "text", "placeholder": "/reservieren", "required": 0, "wrapper": { "width": "50" }, "menu_order": 7 },
+      { "key": "field_vd_hero_bg_tab", "label": "Hintergrundbild", "name": "hero_bg_tab", "type": "tab", "placement": "top", "endpoint": 0, "menu_order": 10 },
+      { "key": "field_vd_hero_bg_image", "label": "Hintergrundbild", "name": "hero_bg_image", "type": "image", "instructions": "Wird als Hero-Hintergrund verwendet. Empfohlen: min. 1920x800px.", "required": 0, "return_format": "array", "preview_size": "medium", "library": "all", "menu_order": 11 },
+      { "key": "field_vd_hero_bg_overlay_opacity", "label": "Overlay-Deckkraft", "name": "hero_bg_overlay_opacity", "type": "select", "instructions": "Grünes Overlay über dem Hintergrundbild. Höherer Wert = dunkler.", "required": 0, "choices": { "0.35": "Leicht (0.35)", "0.45": "Mittel-leicht (0.45)", "0.55": "Mittel (0.55)", "0.65": "Mittel-dunkel (0.65)", "0.75": "Dunkel (0.75)" }, "default_value": "0.55", "return_format": "value", "menu_order": 12 },
+      { "key": "field_vd_hero_card_tab", "label": "Empfehlungs-Karte", "name": "hero_card_tab", "type": "tab", "placement": "top", "endpoint": 0, "menu_order": 20 },
+      { "key": "field_vd_hero_show_featured_card", "label": "Empfehlungs-Karte anzeigen", "name": "hero_show_featured_card", "type": "true_false", "instructions": "Karte rechts im Hero ein- oder ausblenden.", "required": 0, "default_value": 1, "ui": 1, "ui_on_text": "Ja", "ui_off_text": "Nein", "menu_order": 21 },
+      { "key": "field_vd_hero_featured_image", "label": "Bild der Karte", "name": "hero_featured_image", "type": "image", "instructions": "Bild für die Empfehlungs-Karte. Empfohlen: 3:2 Format.", "required": 0, "return_format": "array", "preview_size": "thumbnail", "library": "all", "conditional_logic": [ [ { "field": "field_vd_hero_show_featured_card", "operator": "==", "value": "1" } ] ], "menu_order": 22 },
+      { "key": "field_vd_hero_featured_badge", "label": "Badge-Text", "name": "hero_featured_badge", "type": "text", "placeholder": "Empfohlen", "required": 0, "wrapper": { "width": "50" }, "conditional_logic": [ [ { "field": "field_vd_hero_show_featured_card", "operator": "==", "value": "1" } ] ], "menu_order": 23 },
+      { "key": "field_vd_hero_featured_title", "label": "Titel der Karte", "name": "hero_featured_title", "type": "text", "placeholder": "z.B. Bun Bowl Special", "required": 0, "wrapper": { "width": "50" }, "conditional_logic": [ [ { "field": "field_vd_hero_show_featured_card", "operator": "==", "value": "1" } ] ], "menu_order": 24 },
+      { "key": "field_vd_hero_featured_text", "label": "Beschreibung", "name": "hero_featured_text", "type": "textarea", "rows": 2, "new_lines": "", "required": 0, "conditional_logic": [ [ { "field": "field_vd_hero_show_featured_card", "operator": "==", "value": "1" } ] ], "menu_order": 25 },
+      { "key": "field_vd_hero_featured_price", "label": "Preis", "name": "hero_featured_price", "type": "text", "instructions": "Nur die Zahl, ohne Währung – z.B. \"26.50\"", "placeholder": "26.50", "required": 0, "wrapper": { "width": "30" }, "conditional_logic": [ [ { "field": "field_vd_hero_show_featured_card", "operator": "==", "value": "1" } ] ], "menu_order": 26 }
     ],
     "location": [
       [ { "param": "page_type", "operator": "==", "value": "front_page" } ],
       [ { "param": "options_page", "operator": "==", "value": "vietdura-startseite" } ]
     ],
-    "menu_order": 0,
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "active": true
+    "menu_order": 0, "position": "normal", "style": "default", "label_placement": "top", "instruction_placement": "label", "active": true
+  },
+  {
+    "key": "group_vd_tages_menue_details",
+    "title": "Tages Menue Details",
+    "fields": [
+      { "key": "field_vd_tm_post_nummer", "label": "Menü-Nr.", "name": "menu_nummer", "type": "text", "placeholder": "z.B. 12", "wrapper": { "width": "20" }, "menu_order": 0 },
+      { "key": "field_vd_tm_post_preis", "label": "Preis (CHF)", "name": "preis", "type": "text", "instructions": "z.B. \"18.50\"", "placeholder": "18.50", "wrapper": { "width": "30" }, "menu_order": 1 },
+      { "key": "field_vd_tm_post_badge", "label": "Hinweis", "name": "badges", "type": "checkbox", "choices": { "beliebt": "Beliebt", "haus-hit": "Haus-Hit", "neu": "Neu", "vegetarisch": "Vegetarisch", "scharf": "Scharf" }, "default_value": [], "return_format": "value", "layout": "horizontal", "toggle": 0, "wrapper": { "width": "50" }, "menu_order": 2 },
+      { "key": "field_vd_tm_post_allergene", "label": "Allergene", "name": "allergene", "type": "text", "placeholder": "z.B. Gluten, Soja, Erdnüsse", "wrapper": { "width": "50" }, "menu_order": 3 },
+      { "key": "field_vd_tm_post_reihenfolge", "label": "Reihenfolge", "name": "reihenfolge", "type": "number", "default_value": 10, "wrapper": { "width": "25" }, "menu_order": 4 }
+    ],
+    "location": [ [ { "param": "post_type", "operator": "==", "value": "mittagsmenu" } ] ],
+    "menu_order": 0, "position": "normal", "style": "default", "label_placement": "top", "instruction_placement": "label", "active": true
+  },
+  {
+    "key": "group_vd_empfehlung",
+    "title": "Tagesempfehlung",
+    "fields": [
+      { "key": "field_vd_emp_aktiv", "label": "Empfehlung anzeigen", "name": "empfehlung_aktiv", "type": "true_false", "instructions": "EIN = Empfehlungs-Banner erscheint auf der Homepage. AUS = unsichtbar.", "default_value": 0, "ui": 1, "ui_on_text": "Ja – anzeigen", "ui_off_text": "Nein – ausblenden", "menu_order": 0 },
+      { "key": "field_vd_emp_badge", "label": "Badge", "name": "empfehlung_badge", "type": "text", "placeholder": "Heute empfohlen", "wrapper": { "width": "40" }, "conditional_logic": [ [ { "field": "field_vd_emp_aktiv", "operator": "==", "value": "1" } ] ], "menu_order": 1 },
+      { "key": "field_vd_emp_titel", "label": "Titel / Gerichtname", "name": "empfehlung_titel", "type": "text", "placeholder": "z.B. Bun Bowl Special", "required": 1, "wrapper": { "width": "60" }, "conditional_logic": [ [ { "field": "field_vd_emp_aktiv", "operator": "==", "value": "1" } ] ], "menu_order": 2 },
+      { "key": "field_vd_emp_text", "label": "Kurzbeschreibung", "name": "empfehlung_text", "type": "textarea", "rows": 2, "new_lines": "", "conditional_logic": [ [ { "field": "field_vd_emp_aktiv", "operator": "==", "value": "1" } ] ], "menu_order": 3 },
+      { "key": "field_vd_emp_preis", "label": "Preis (nur Zahl, z.B. 26.50)", "name": "empfehlung_preis", "type": "text", "placeholder": "26.50", "wrapper": { "width": "30" }, "conditional_logic": [ [ { "field": "field_vd_emp_aktiv", "operator": "==", "value": "1" } ] ], "menu_order": 4 },
+      { "key": "field_vd_emp_bild", "label": "Bild", "name": "empfehlung_bild", "type": "image", "return_format": "array", "preview_size": "medium", "instructions": "Empfohlen: 3:2 Format, min. 600x400px.", "conditional_logic": [ [ { "field": "field_vd_emp_aktiv", "operator": "==", "value": "1" } ] ], "menu_order": 5 }
+    ],
+    "location": [ [ { "param": "options_page", "operator": "==", "value": "vietdura-empfehlung" } ] ],
+    "menu_order": 0, "position": "normal", "style": "default", "label_placement": "top", "instruction_placement": "label", "active": true
+  },
+  {
+    "key": "group_vd_tagesmenu",
+    "title": "Tagesmenu",
+    "fields": [
+      { "key": "field_vd_tm_aktiv", "label": "Tagesmenu anzeigen", "name": "tagesmenu_aktiv", "type": "true_false", "instructions": "EIN = Tagesmenu erscheint auf der Homepage und der Mittagsmenu-Seite.", "default_value": 0, "ui": 1, "ui_on_text": "Ja – anzeigen", "ui_off_text": "Nein – ausblenden", "menu_order": 0 },
+      { "key": "field_vd_tm_datum", "label": "Datum / Bezeichnung", "name": "tagesmenu_datum", "type": "text", "instructions": "z.B. \"Heute, 15. März\" oder \"Diese Woche\"", "placeholder": "Heute", "wrapper": { "width": "50" }, "conditional_logic": [ [ { "field": "field_vd_tm_aktiv", "operator": "==", "value": "1" } ] ], "menu_order": 1 },
+      { "key": "field_vd_tm_intro", "label": "Einleitungstext", "name": "tagesmenu_intro", "type": "text", "placeholder": "Frisch gekocht – täglich wechselndes Mittagsmenu", "wrapper": { "width": "50" }, "conditional_logic": [ [ { "field": "field_vd_tm_aktiv", "operator": "==", "value": "1" } ] ], "menu_order": 2 },
+      { "key": "field_vd_tm_preis_info", "label": "Preis-Info", "name": "tagesmenu_preis_info", "type": "text", "instructions": "Wird unter dem Menu angezeigt.", "placeholder": "Inkl. Suppe oder Dessert · CHF 18.50 / 21.50", "conditional_logic": [ [ { "field": "field_vd_tm_aktiv", "operator": "==", "value": "1" } ] ], "menu_order": 3 },
+      {
+        "key": "field_vd_tm_extras", "label": "Zusätzliche Menu-Positionen", "name": "tagesmenu_extras", "type": "repeater",
+        "instructions": "Hier kannst du Gerichte erfassen die NICHT in der Speisekarte sind.",
+        "min": 0, "max": 10, "layout": "block", "button_label": "+ Position hinzufügen",
+        "conditional_logic": [ [ { "field": "field_vd_tm_aktiv", "operator": "==", "value": "1" } ] ],
+        "menu_order": 4,
+        "sub_fields": [
+          { "key": "field_vd_tm_extra_badge", "label": "Badge", "name": "badge", "type": "text", "placeholder": "Menu 1", "wrapper": { "width": "30" } },
+          { "key": "field_vd_tm_extra_titel", "label": "Gericht", "name": "titel", "type": "text", "placeholder": "z.B. Pho Bo mit Rindfleisch", "required": 1, "wrapper": { "width": "70" } },
+          { "key": "field_vd_tm_extra_beschreibung", "label": "Beschreibung", "name": "beschreibung", "type": "text", "placeholder": "Kurze Beschreibung (optional)", "wrapper": { "width": "70" } },
+          { "key": "field_vd_tm_extra_preis", "label": "Preis (CHF)", "name": "preis", "type": "text", "placeholder": "18.50", "wrapper": { "width": "30" } }
+        ]
+      }
+    ],
+    "location": [ [ { "param": "options_page", "operator": "==", "value": "vietdura-tagesmenu" } ] ],
+    "menu_order": 0, "position": "normal", "style": "default", "label_placement": "top", "instruction_placement": "label", "active": true
   },
   {
     "key": "group_vd_kontakt",
-    "title": "Kontakt & \u00d6ffnungszeiten",
+    "title": "Kontakt & Öffnungszeiten",
     "fields": [
-      {
-        "key": "field_vd_adresse",
-        "label": "Adresse (Strasse & Hausnummer)",
-        "name": "adresse",
-        "type": "text",
-        "placeholder": "Musterstrasse 12",
-        "required": 0,
-        "wrapper": { "width": "60", "class": "", "id": "" }
-      },
-      {
-        "key": "field_vd_plz_ort",
-        "label": "PLZ & Ort",
-        "name": "plz_ort",
-        "type": "text",
-        "placeholder": "8317 Tagelswangen",
-        "required": 0,
-        "wrapper": { "width": "40", "class": "", "id": "" }
-      },
-      {
-        "key": "field_vd_telefon",
-        "label": "Telefon",
-        "name": "telefon",
-        "type": "text",
-        "placeholder": "+41 52 123 45 67",
-        "required": 0,
-        "wrapper": { "width": "50", "class": "", "id": "" }
-      },
-      {
-        "key": "field_vd_telefon_href",
-        "label": "Telefon (f\u00fcr tel:-Link, keine Leerzeichen)",
-        "name": "telefon_href",
-        "type": "text",
-        "placeholder": "+41521234567",
-        "required": 0,
-        "wrapper": { "width": "50", "class": "", "id": "" }
-      },
-      {
-        "key": "field_vd_email",
-        "label": "E-Mail",
-        "name": "email",
-        "type": "email",
-        "placeholder": "info@vietdura.ch",
-        "required": 0
-      },
-      {
-        "key": "field_vd_reservierung_url",
-        "label": "Reservierungs-URL",
-        "name": "reservierung_url",
-        "type": "text",
-        "placeholder": "/reservieren",
-        "required": 0
-      },
-      {
-        "key": "field_vd_oeffnungszeiten",
-        "label": "\u00d6ffnungszeiten",
-        "name": "oeffnungszeiten",
-        "type": "repeater",
-        "instructions": "Jede Zeile = eine Zeile in der Tabelle",
-        "required": 0,
-        "min": 0,
-        "layout": "table",
-        "button_label": "Zeile hinzuf\u00fcgen",
-        "sub_fields": [
-          {
-            "key": "field_vd_oez_tag",
-            "label": "Tag / Zeitraum",
-            "name": "tag",
-            "type": "text",
-            "required": 1,
-            "placeholder": "Dienstag \u2013 Freitag",
-            "wrapper": { "width": "40", "class": "", "id": "" }
-          },
-          {
-            "key": "field_vd_oez_zeiten",
-            "label": "Zeiten (leer = Geschlossen)",
-            "name": "zeiten",
-            "type": "text",
-            "required": 0,
-            "placeholder": "11:30 \u2013 14:00 & 17:30 \u2013 22:00",
-            "wrapper": { "width": "60", "class": "", "id": "" }
-          }
-        ]
-      }
+      { "key": "field_vd_k_tab_adresse", "label": "Adresse & Kontakt", "name": "k_tab_adresse", "type": "tab", "placement": "top", "menu_order": 0 },
+      { "key": "field_vd_k_strasse", "label": "Strasse & Hausnummer", "name": "adresse", "type": "text", "placeholder": "Zürcherstrasse 48", "wrapper": { "width": "50" }, "menu_order": 1 },
+      { "key": "field_vd_k_plz_ort", "label": "PLZ & Ort", "name": "plz_ort", "type": "text", "placeholder": "8317 Tagelswangen ZH", "wrapper": { "width": "50" }, "menu_order": 2 },
+      { "key": "field_vd_k_telefon", "label": "Telefon (Anzeige)", "name": "telefon", "type": "text", "placeholder": "+41 44 940 99 99", "wrapper": { "width": "50" }, "menu_order": 3 },
+      { "key": "field_vd_k_telefon_href", "label": "Telefon (Link, nur Zahlen)", "name": "telefon_href", "type": "text", "instructions": "Nur Zahlen ohne Leerzeichen, z.B. +41449409999", "placeholder": "+41449409999", "wrapper": { "width": "50" }, "menu_order": 4 },
+      { "key": "field_vd_k_whatsapp", "label": "WhatsApp Link", "name": "whatsapp_url", "type": "text", "placeholder": "https://wa.me/41449409999", "wrapper": { "width": "50" }, "menu_order": 5 },
+      { "key": "field_vd_k_email", "label": "E-Mail allgemein", "name": "email", "type": "email", "placeholder": "info@vietdura.ch", "wrapper": { "width": "50" }, "menu_order": 6 },
+      { "key": "field_vd_k_email_catering", "label": "E-Mail Catering", "name": "email_catering", "type": "email", "placeholder": "rh@vietdura.ch", "wrapper": { "width": "50" }, "menu_order": 7 },
+      { "key": "field_vd_k_reservierung_url", "label": "Reservierungs-URL / Tel-Link", "name": "reservierung_url", "type": "text", "placeholder": "tel:+41449409999", "wrapper": { "width": "50" }, "menu_order": 8 },
+      { "key": "field_vd_k_maps_url", "label": "Google Maps URL", "name": "maps_url", "type": "url", "placeholder": "https://maps.google.com/?q=Zürcherstrasse+48+Tagelswangen", "wrapper": { "width": "100" }, "menu_order": 9 },
+      { "key": "field_vd_k_parkplatz", "label": "Parkplatz-Info", "name": "parkplatz_info", "type": "text", "placeholder": "Kostenlose Parkplätze gegenüber (signalisiert)", "wrapper": { "width": "100" }, "menu_order": 10 },
+      { "key": "field_vd_k_tab_oeffnung", "label": "Öffnungszeiten", "name": "k_tab_oeffnung", "type": "tab", "placement": "top", "menu_order": 20 },
+      { "key": "field_vd_oz_mo_mi_von", "label": "Montag Mittag von",     "name": "oz_mo_mi_von", "type": "text", "placeholder": "11:00", "instructions": "Leer = kein Mittagsservice", "wrapper": { "width": "25" }, "menu_order": 21 },
+      { "key": "field_vd_oz_mo_mi_bis", "label": "Montag Mittag bis",     "name": "oz_mo_mi_bis", "type": "text", "placeholder": "14:00", "wrapper": { "width": "25" }, "menu_order": 22 },
+      { "key": "field_vd_oz_mo_ab_von", "label": "Montag Abend von",      "name": "oz_mo_ab_von", "type": "text", "placeholder": "17:00", "instructions": "Leer = kein Abendservice / Ruhetag", "wrapper": { "width": "25" }, "menu_order": 23 },
+      { "key": "field_vd_oz_mo_ab_bis", "label": "Montag Abend bis",      "name": "oz_mo_ab_bis", "type": "text", "placeholder": "22:00", "wrapper": { "width": "25" }, "menu_order": 24 },
+      { "key": "field_vd_oz_di_mi_von", "label": "Dienstag Mittag von",   "name": "oz_di_mi_von", "type": "text", "placeholder": "11:00", "wrapper": { "width": "25" }, "menu_order": 25 },
+      { "key": "field_vd_oz_di_mi_bis", "label": "Dienstag Mittag bis",   "name": "oz_di_mi_bis", "type": "text", "placeholder": "14:00", "wrapper": { "width": "25" }, "menu_order": 26 },
+      { "key": "field_vd_oz_di_ab_von", "label": "Dienstag Abend von",    "name": "oz_di_ab_von", "type": "text", "placeholder": "17:00", "wrapper": { "width": "25" }, "menu_order": 27 },
+      { "key": "field_vd_oz_di_ab_bis", "label": "Dienstag Abend bis",    "name": "oz_di_ab_bis", "type": "text", "placeholder": "22:00", "wrapper": { "width": "25" }, "menu_order": 28 },
+      { "key": "field_vd_oz_mi_mi_von", "label": "Mittwoch Mittag von",   "name": "oz_mi_mi_von", "type": "text", "placeholder": "11:00", "wrapper": { "width": "25" }, "menu_order": 29 },
+      { "key": "field_vd_oz_mi_mi_bis", "label": "Mittwoch Mittag bis",   "name": "oz_mi_mi_bis", "type": "text", "placeholder": "14:00", "wrapper": { "width": "25" }, "menu_order": 30 },
+      { "key": "field_vd_oz_mi_ab_von", "label": "Mittwoch Abend von",    "name": "oz_mi_ab_von", "type": "text", "placeholder": "17:00", "wrapper": { "width": "25" }, "menu_order": 31 },
+      { "key": "field_vd_oz_mi_ab_bis", "label": "Mittwoch Abend bis",    "name": "oz_mi_ab_bis", "type": "text", "placeholder": "22:00", "wrapper": { "width": "25" }, "menu_order": 32 },
+      { "key": "field_vd_oz_do_mi_von", "label": "Donnerstag Mittag von", "name": "oz_do_mi_von", "type": "text", "placeholder": "11:00", "wrapper": { "width": "25" }, "menu_order": 33 },
+      { "key": "field_vd_oz_do_mi_bis", "label": "Donnerstag Mittag bis", "name": "oz_do_mi_bis", "type": "text", "placeholder": "14:00", "wrapper": { "width": "25" }, "menu_order": 34 },
+      { "key": "field_vd_oz_do_ab_von", "label": "Donnerstag Abend von",  "name": "oz_do_ab_von", "type": "text", "placeholder": "17:00", "wrapper": { "width": "25" }, "menu_order": 35 },
+      { "key": "field_vd_oz_do_ab_bis", "label": "Donnerstag Abend bis",  "name": "oz_do_ab_bis", "type": "text", "placeholder": "22:00", "wrapper": { "width": "25" }, "menu_order": 36 },
+      { "key": "field_vd_oz_fr_mi_von", "label": "Freitag Mittag von",    "name": "oz_fr_mi_von", "type": "text", "placeholder": "11:00", "wrapper": { "width": "25" }, "menu_order": 37 },
+      { "key": "field_vd_oz_fr_mi_bis", "label": "Freitag Mittag bis",    "name": "oz_fr_mi_bis", "type": "text", "placeholder": "14:00", "wrapper": { "width": "25" }, "menu_order": 38 },
+      { "key": "field_vd_oz_fr_ab_von", "label": "Freitag Abend von",     "name": "oz_fr_ab_von", "type": "text", "placeholder": "17:00", "wrapper": { "width": "25" }, "menu_order": 39 },
+      { "key": "field_vd_oz_fr_ab_bis", "label": "Freitag Abend bis",     "name": "oz_fr_ab_bis", "type": "text", "placeholder": "22:00", "wrapper": { "width": "25" }, "menu_order": 40 },
+      { "key": "field_vd_oz_sa_mi_von", "label": "Samstag Mittag von",    "name": "oz_sa_mi_von", "type": "text", "placeholder": "", "instructions": "Leer = kein Mittagsservice", "wrapper": { "width": "25" }, "menu_order": 41 },
+      { "key": "field_vd_oz_sa_mi_bis", "label": "Samstag Mittag bis",    "name": "oz_sa_mi_bis", "type": "text", "placeholder": "", "wrapper": { "width": "25" }, "menu_order": 42 },
+      { "key": "field_vd_oz_sa_ab_von", "label": "Samstag Abend von",     "name": "oz_sa_ab_von", "type": "text", "placeholder": "17:00", "wrapper": { "width": "25" }, "menu_order": 43 },
+      { "key": "field_vd_oz_sa_ab_bis", "label": "Samstag Abend bis",     "name": "oz_sa_ab_bis", "type": "text", "placeholder": "22:00", "wrapper": { "width": "25" }, "menu_order": 44 },
+      { "key": "field_vd_oz_so_mi_von", "label": "Sonntag Mittag von",    "name": "oz_so_mi_von", "type": "text", "placeholder": "", "instructions": "Leer = kein Mittagsservice", "wrapper": { "width": "25" }, "menu_order": 45 },
+      { "key": "field_vd_oz_so_mi_bis", "label": "Sonntag Mittag bis",    "name": "oz_so_mi_bis", "type": "text", "placeholder": "", "wrapper": { "width": "25" }, "menu_order": 46 },
+      { "key": "field_vd_oz_so_ab_von", "label": "Sonntag Abend von",     "name": "oz_so_ab_von", "type": "text", "placeholder": "17:00", "wrapper": { "width": "25" }, "menu_order": 47 },
+      { "key": "field_vd_oz_so_ab_bis", "label": "Sonntag Abend bis",     "name": "oz_so_ab_bis", "type": "text", "placeholder": "22:00", "wrapper": { "width": "25" }, "menu_order": 48 },
+      { "key": "field_vd_k_oeffnung_hinweis", "label": "Hinweis Öffnungszeiten", "name": "oeffnung_hinweis", "type": "text", "instructions": "Wird unter der Öffnungszeiten-Tabelle angezeigt", "placeholder": "Anrufe & WhatsApp nur während Öffnungszeiten", "wrapper": { "width": "100" }, "menu_order": 49 },
+      { "key": "field_vd_k_tab_map", "label": "Google Maps Embed", "name": "k_tab_map", "type": "tab", "placement": "top", "menu_order": 30 },
+      { "key": "field_vd_k_maps_embed", "label": "Google Maps Embed-Code", "name": "maps_embed", "type": "textarea", "instructions": "Den iframe-Code von Google Maps hier einfügen (Google Maps → Teilen → Karte einbetten → HTML kopieren)", "rows": 4, "menu_order": 31 }
     ],
-    "location": [
-      [ { "param": "options_page", "operator": "==", "value": "vietdura-kontakt" } ]
-    ],
-    "menu_order": 0,
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "active": true
+    "location": [ [ { "param": "options_page", "operator": "==", "value": "vietdura-kontakt" } ] ],
+    "menu_order": 0, "position": "normal", "style": "default", "label_placement": "top", "instruction_placement": "label", "active": true
   },
   {
-    "key": "group_vd_deklaration",
-    "title": "Deklaration & Herkunft",
+    "key": "group_vd_page_hero",
+    "title": "Hero-Hintergrundbild",
     "fields": [
-      {
-        "key": "field_vd_dekl_intro",
-        "label": "Einleitungstext",
-        "name": "dekl_intro",
-        "type": "textarea",
-        "instructions": "Kurzer Einleitungstext f\u00fcr die Deklarationsseite",
-        "required": 0,
-        "rows": 4,
-        "new_lines": "wpautop"
-      },
-      {
-        "key": "field_vd_dekl_eintraege",
-        "label": "Herkunftsangaben",
-        "name": "dekl_eintraege",
-        "type": "repeater",
-        "instructions": "Produkt und dessen Herkunft eintragen",
-        "required": 0,
-        "min": 0,
-        "layout": "table",
-        "button_label": "Eintrag hinzuf\u00fcgen",
-        "sub_fields": [
-          {
-            "key": "field_vd_dekl_produkt",
-            "label": "Produkt",
-            "name": "produkt",
-            "type": "text",
-            "required": 1,
-            "placeholder": "z.B. Rindfleisch",
-            "wrapper": { "width": "35", "class": "", "id": "" }
-          },
-          {
-            "key": "field_vd_dekl_herkunft",
-            "label": "Herkunft / Land",
-            "name": "herkunft",
-            "type": "text",
-            "required": 1,
-            "placeholder": "z.B. Schweiz",
-            "wrapper": { "width": "30", "class": "", "id": "" }
-          },
-          {
-            "key": "field_vd_dekl_hinweis",
-            "label": "Hinweis",
-            "name": "hinweis",
-            "type": "text",
-            "required": 0,
-            "placeholder": "optional",
-            "wrapper": { "width": "35", "class": "", "id": "" }
-          }
-        ]
-      }
+      { "key": "field_vd_page_hero_bg_image", "label": "Hintergrundbild", "name": "page_hero_bg_image", "type": "image", "instructions": "Hero-Hintergrund. Empfohlen: min. 1920x800px.", "required": 0, "return_format": "array", "preview_size": "medium", "library": "all", "menu_order": 1 },
+      { "key": "field_vd_page_hero_bg_opacity", "label": "Overlay-Deckkraft", "name": "page_hero_bg_opacity", "type": "select", "instructions": "Dunkles Overlay über dem Bild.", "required": 0, "choices": { "0.35": "Leicht", "0.45": "Mittel-leicht", "0.55": "Mittel", "0.65": "Mittel-dunkel", "0.75": "Dunkel" }, "default_value": "0.55", "return_format": "value", "menu_order": 2 }
     ],
-    "location": [
-      [ { "param": "options_page", "operator": "==", "value": "vietdura-deklaration" } ]
-    ],
-    "menu_order": 0,
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "active": true
+    "location": [ [ { "param": "post_type", "operator": "==", "value": "page" } ] ],
+    "menu_order": 0, "position": "side", "style": "default", "label_placement": "top", "instruction_placement": "label", "active": true
   }
 ]

@@ -37,7 +37,8 @@ $tages_menue_posts = get_posts( [
 
 <main class="site-main" id="main-content">
 
-<section class="page-hero section" id="mittagsmenu-start">
+<section id="mittagsmenu-start"<?php vietdura_page_hero_bg_attrs(); ?>>
+    <?php vietdura_page_hero_overlay(); ?>
     <div class="container">
         <div class="section-heading">
             <span class="section-kicker">Mittagsmenu</span>

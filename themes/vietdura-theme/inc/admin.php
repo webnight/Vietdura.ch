@@ -4,14 +4,13 @@
 // ─── VietDura Einstellungsseite ───────────────────────────────────────────────
 
 add_action( 'admin_menu', function () {
-	add_menu_page(
-		'seven.io Einstellungen',
-		'seven.io',
+	add_submenu_page(
+		'vietdura-settings',
+		'Bestellsystem & Benachrichtigungen',
+		'Bestellsystem',
 		'manage_options',
 		'vietdura-settings',
-		'vd_settings_page',
-		'dashicons-email-alt',
-		100
+		'vd_settings_page'
 	);
 } );
 

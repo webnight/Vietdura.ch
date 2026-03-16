@@ -184,7 +184,7 @@
             "name": "hero_bg_image",
             "aria-label": "",
             "type": "image",
-            "instructions": "Wird als Hero-Hintergrund verwendet. Empfohlen: min. 1920×800px.",
+            "instructions": "Wird als Hero-Hintergrund verwendet. Empfohlen: min. 1920x800px.",
             "required": 0,
             "conditional_logic": false,
             "wrapper": {
@@ -444,5 +444,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1773610313
+    "modified": 1773623938
 }

@@ -168,7 +168,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "vietdura-settings"
+                "value": "vietdura-bestellsystem"
             }
         ]
     ],
@@ -177,10 +177,10 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": [],
+    "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": false,
+    "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773598898
+    "modified": 1773623938
 }

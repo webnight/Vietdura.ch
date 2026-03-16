@@ -28,7 +28,8 @@ $hat_unkategorisiert = $ohne_kategorie->have_posts();
 
 <main class="site-main">
 
-    <section class="page-hero section" id="getraenke-start">
+    <section id="getraenke-start"<?php vietdura_page_hero_bg_attrs(); ?>>
+        <?php vietdura_page_hero_overlay(); ?>
         <div class="container-narrow">
             <div class="section-heading">
                 <span class="section-kicker">Getränke</span>

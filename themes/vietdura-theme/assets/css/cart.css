@@ -206,6 +206,20 @@
   opacity: 0.5;
   cursor: default;
 }
+.vd-add-btn--closed {
+  background: transparent;
+  color: var(--color-green, #4a7c59);
+  border: 1.5px solid currentColor;
+  opacity: 0.75;
+  cursor: default;
+  pointer-events: none;
+  font-size: 0.82em;
+  gap: 5px;
+}
+.vd-closed-icon {
+  font-size: 1em;
+  line-height: 1;
+}
 
 /* ── Checkout-Seite ─────────────────────────────────────────────────────── */
 .vd-checkout-wrap {

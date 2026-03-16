@@ -148,13 +148,12 @@
           updateCheckoutBtn();
           loadCart();
         } else if (res.data && res.data.closed) {
-          // Mittagsmenu geschlossen
           if (btn) {
             btn.disabled = true;
-            btn.textContent = '⏰ Bestellzeit vorbei';
+            btn.classList.add('vd-add-btn--closed');
+            btn.innerHTML = '<span class="vd-closed-icon">🕐</span> Bestellzeit vorbei';
             btn.title = res.data.message;
           }
-          alert(res.data.message);
         }
       })
       .finally(function () {
@@ -337,15 +336,46 @@
     });
   }
 
+  /* ── Bestellstatus: Buttons beim Load prüfen ── */
+  function checkBestellstatus() {
+    var btns = qsa('[data-cart-add]');
+    if (!btns.length) return;
+
+    var fd = new FormData();
+    fd.append('action', 'vd_bestellstatus');
+    fd.append('nonce',  nonce);
+
+    fetch(ajax, { method: 'POST', body: fd })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (!res.success) return;
+        var status = res.data;
+        btns.forEach(function (btn) {
+          var context = btn.dataset.context || '';
+          var type    = btn.dataset.type    || 'speise';
+          var key     = (context === 'tagesmenu' || type === 'mittagsmenu') ? 'mittagsmenu' : (type === 'getraenk' ? 'getraenk' : 'speise');
+          var s = status[key];
+          if (s && !s.ok) {
+            btn.disabled = true;
+            btn.classList.add('vd-add-btn--closed');
+            btn.innerHTML = '<span class="vd-closed-icon">🕐</span> Bestellzeit vorbei';
+            btn.title = s.message;
+          }
+        });
+      });
+  }
+
   /* ── Init ── */
   document.addEventListener('DOMContentLoaded', function () {
     updateBadge();
+    checkBestellstatus();
 
     /* Add-to-Cart Buttons */
     document.addEventListener('click', function (e) {
       var btn = e.target.closest('[data-cart-add]');
       if (!btn) return;
       e.preventDefault();
+      if (btn.classList.contains('vd-add-btn--closed')) return; // bereits geschlossen
       cartAdd(parseInt(btn.dataset.postId), btn.dataset.type || 'speise', btn.dataset.context || '');
     });
 

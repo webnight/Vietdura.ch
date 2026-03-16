@@ -101,3 +101,16 @@ function vd_int_zu_zeit( int $i ): string {
     if ( ! $i ) return '';
     return sprintf( '%02d:%02d', (int) ( $i / 100 ), $i % 100 );
 }
+
+// ── AJAX: Bestellstatus für JS ─────────────────────────────────────────────
+add_action( 'wp_ajax_vd_bestellstatus',        'vd_ajax_bestellstatus' );
+add_action( 'wp_ajax_nopriv_vd_bestellstatus', 'vd_ajax_bestellstatus' );
+
+function vd_ajax_bestellstatus(): void {
+    check_ajax_referer( 'vd_cart_nonce', 'nonce' );
+    wp_send_json_success( [
+        'speise'      => vd_bestellzeit_pruefen( 'speise' ),
+        'mittagsmenu' => vd_bestellzeit_pruefen( 'mittagsmenu' ),
+        'getraenk'    => vd_bestellzeit_pruefen( 'getraenk' ),
+    ] );
+}

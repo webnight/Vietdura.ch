@@ -172,3 +172,27 @@ document.addEventListener('DOMContentLoaded', () => {
         initCategoryNav(gtNavWrap, gtNav, gtPlaceholder, 'getraenke-start', 'data-getraenke-section');
     }
 });
+
+// ── Homepage Speisekarte Tabs ─────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.menu-tab');
+    const panels = document.querySelectorAll('.menu-panel');
+    if (!tabs.length) return;
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.dataset.tab;
+
+            tabs.forEach(t => {
+                t.classList.remove('menu-tab--active');
+                t.setAttribute('aria-selected', 'false');
+            });
+            panels.forEach(p => p.classList.remove('menu-panel--active'));
+
+            tab.classList.add('menu-tab--active');
+            tab.setAttribute('aria-selected', 'true');
+            const panel = document.querySelector('.menu-panel[data-panel="' + target + '"]');
+            if (panel) panel.classList.add('menu-panel--active');
+        });
+    });
+});

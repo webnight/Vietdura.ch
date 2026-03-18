@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
 
 :root {
     --color-green: #2f6b55;
@@ -15,6 +15,7 @@
     --container: 1200px;
     --font-heading: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Inter', Arial, sans-serif;
+    --font-price: 'Outfit', 'Inter', sans-serif;
 }
 
 * {
@@ -1120,13 +1121,22 @@ a {
 }
 
 .speise-card-price {
-    font-family: var(--font-heading);
-    font-size: 1.28rem;
-    font-weight: 700;
+    font-family: var(--font-price);
+    font-size: 1.2rem;
+    font-weight: 600;
     color: var(--color-terracotta);
     white-space: nowrap;
     flex-shrink: 0;
     margin-top: 2px;
+    letter-spacing: 0.01em;
+}
+.speise-card-price .preis-chf {
+    font-size: 0.72em;
+    font-weight: 400;
+    opacity: 0.65;
+    margin-right: 3px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 .speise-card-body > p {
@@ -1192,7 +1202,7 @@ a {
 .getraenk-item-price {
     grid-column: 2;
     grid-row: 1 / 3;
-    font-family: var(--font-heading);
+    font-family: var(--font-price);
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--color-terracotta);
@@ -1499,12 +1509,12 @@ a {
    TRUST BAR
 ═══════════════════════════════════════════════════════════════════════════ */
 .trust-bar {
-    background: #7a1c14;
+    background: var(--color-green-dark);
     color: rgba(255,255,255,0.95);
     padding: 13px 0;
     overflow-x: auto;
-    border-top: 2px solid #c9a24a;
-    border-bottom: 2px solid #c9a24a;
+    border-top: 2px solid rgba(255,255,255,0.12);
+    border-bottom: 2px solid rgba(255,255,255,0.12);
 }
 .trust-bar-inner {
     display: flex;
@@ -1619,13 +1629,20 @@ a {
     margin: 0;
 }
 .empfehlung-preis {
-    font-size: 1.1rem;
-    color: #333;
+    font-family: var(--font-price);
+    font-size: 1.0rem;
+    color: #999;
     margin: 0;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 .empfehlung-preis strong {
+    font-family: var(--font-price);
     font-size: 1.5rem;
-    color: #7a1c14;
+    font-weight: 600;
+    color: var(--color-terracotta);
+    text-transform: none;
+    letter-spacing: 0.01em;
 }
 @media (max-width: 680px) {
     .empfehlung-card {
@@ -2306,4 +2323,734 @@ a {
     .tagesmenu-preview-grid { grid-template-columns: 1fr; }
     .mittagsmenu-hero { padding: 44px 0 36px; }
     .mittagsmenu-cta { flex-direction: column; align-items: center; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Reservierung
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.reservation-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 48px;
+    align-items: start;
+}
+
+.reservation-form-wrap h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 0 4px;
+}
+
+.reservation-intro {
+    color: #6a7a8a;
+    font-size: 0.92rem;
+    margin-bottom: 20px;
+}
+
+/* ── Plugin-Formular Styling ────────────────────────────────────────────── */
+
+.rtb-modification-toggle {
+    display: inline-block;
+    padding: 8px 18px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #5a6a78;
+    background: transparent;
+    border: 1.5px solid rgba(31, 77, 58, 0.15);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 16px;
+}
+.rtb-modification-toggle:hover {
+    border-color: var(--color-green);
+    color: var(--color-green);
+    background: rgba(47, 107, 85, 0.04);
+}
+
+.rtb-booking-form {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-soft);
+}
+
+.rtb-booking-form fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rtb-booking-form legend {
+    display: none;
+}
+
+/* Kompaktes Grid-Layout */
+.rtb-booking-form .rtb-booking-form-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+    overflow: hidden;
+}
+
+.rtb-booking-form .rtb-booking-form-form > fieldset {
+    display: contents;
+}
+
+.rtb-booking-form .rtb-text,
+.rtb-booking-form .rtb-select {
+    margin-bottom: 12px;
+    min-width: 0;
+    width: auto !important;
+    float: none !important;
+}
+
+.rtb-booking-form select,
+.rtb-booking-form input,
+.rtb-booking-form textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.rtb-booking-form .rtb-textarea,
+.rtb-booking-form .rtb-form-footer,
+.rtb-booking-form .rtb-message {
+    grid-column: 1 / -1;
+    margin-bottom: 12px;
+}
+
+.rtb-booking-form label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 5px;
+    color: #5a6a78;
+}
+
+.rtb-booking-form input[type="text"],
+.rtb-booking-form input[type="email"],
+.rtb-booking-form input[type="tel"],
+.rtb-booking-form input[type="number"],
+.rtb-booking-form input[type="date"],
+.rtb-booking-form input[type="time"],
+.rtb-booking-form select,
+.rtb-booking-form textarea {
+    width: 100%;
+    padding: 10px 14px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    border: 1.5px solid rgba(31, 77, 58, 0.15);
+    border-radius: 10px;
+    background: var(--color-cream);
+    color: var(--color-text);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+.rtb-booking-form input:focus,
+.rtb-booking-form select:focus,
+.rtb-booking-form textarea:focus {
+    border-color: var(--color-green);
+    box-shadow: 0 0 0 3px rgba(47, 107, 85, 0.10);
+    background: var(--color-white);
+}
+
+.rtb-booking-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.rtb-booking-form button[type="submit"],
+.rtb-booking-form input[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-white);
+    background: var(--color-green);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    margin-top: 4px;
+    box-shadow: 0 4px 14px rgba(47, 107, 85, 0.3);
+}
+
+.rtb-booking-form button[type="submit"]:hover,
+.rtb-booking-form input[type="submit"]:hover {
+    background: var(--color-green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(47, 107, 85, 0.4);
+}
+
+/* Picker-Felder (Datum/Uhrzeit) */
+.rtb-booking-form .picker__holder {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.rtb-booking-form .picker__button--today,
+.rtb-booking-form .picker__day--selected,
+.rtb-booking-form .picker__day--highlighted {
+    background: var(--color-green) !important;
+    color: var(--color-white) !important;
+}
+
+/* Erfolgsmeldung */
+.rtb-booking-form .rtb-message.rtb-success {
+    background: rgba(47, 107, 85, 0.06);
+    border: 1.5px solid var(--color-green);
+    border-radius: 14px;
+    padding: 16px 20px;
+    color: var(--color-green-dark);
+    font-weight: 500;
+    font-size: 0.93rem;
+}
+
+/* Fehlermeldung */
+.rtb-booking-form .rtb-message.rtb-error {
+    background: rgba(179, 92, 61, 0.06);
+    border: 1.5px solid var(--color-terracotta);
+    border-radius: 14px;
+    padding: 16px 20px;
+    color: var(--color-terracotta);
+    font-size: 0.93rem;
+}
+
+/* Responsive: 1 Spalte auf Mobile */
+@media (max-width: 600px) {
+    .rtb-booking-form .rtb-booking-form-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Sidebar ────────────────────────────────────────────────────────────── */
+
+.reservation-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.reservation-info-card {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-soft);
+}
+
+.reservation-info-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 16px;
+}
+
+.reservation-info-card .hours-table {
+    width: 100%;
+    font-size: 0.92rem;
+}
+
+.reservation-info-card .hours-table td {
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(31, 77, 58, 0.06);
+}
+
+.reservation-info-card .hours-table tr:last-child td {
+    border-bottom: none;
+}
+
+.reservation-contact-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.reservation-contact-actions .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border-radius: 14px;
+    transition: all 0.25s ease;
+    text-align: center;
+}
+
+.btn-phone {
+    background: var(--color-terracotta);
+    color: var(--color-white);
+    border: none;
+    box-shadow: 0 4px 14px rgba(179, 92, 61, 0.3);
+}
+.btn-phone:hover {
+    background: #9e4e31;
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(179, 92, 61, 0.4);
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+.btn-whatsapp:hover {
+    background: #1fb855;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.btn-phone svg,
+.btn-whatsapp svg {
+    flex-shrink: 0;
+}
+
+.reservation-hints {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.reservation-hints li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 0.92rem;
+    color: #4a5a6a;
+    line-height: 1.5;
+}
+
+.reservation-hints li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-green);
+}
+
+.reservation-hints li:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+    .reservation-layout {
+        grid-template-columns: 1fr;
+    }
+    .reservation-sidebar {
+        order: -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .rtb-booking-form {
+        padding: 24px 20px;
+    }
+    .reservation-info-card {
+        padding: 20px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SPEISEKARTE SEKTION – Vollständiges Menü mit Tabs & Fotos
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.speisekarte-section { background: #fff; }
+
+/* Kategorie-Tabs */
+.menu-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+    border-bottom: 2px solid #f0ede8;
+    padding-bottom: 0;
+}
+.menu-tab {
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    color: #666;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: inherit;
+}
+.menu-tab:hover { color: #c0392b; }
+.menu-tab--active {
+    color: #c0392b;
+    border-bottom-color: #c0392b;
+}
+.menu-tab-count {
+    background: #f0ede8;
+    color: #888;
+    font-size: 0.75rem;
+    padding: 1px 7px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+.menu-tab--active .menu-tab-count {
+    background: #fde8e6;
+    color: #c0392b;
+}
+
+/* Panels */
+.menu-panel { display: none; }
+.menu-panel--active { display: block; }
+
+/* Grid */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Karte */
+.menu-card {
+    background: #fff;
+    border: 1px solid #f0ede8;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+}
+.menu-card--highlight {
+    border-color: #e8c49a;
+    box-shadow: 0 2px 12px rgba(192,57,43,0.08);
+}
+
+/* Bild */
+.menu-card__image {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #fff;
+}
+.menu-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s;
+    padding: 6px;
+}
+.menu-card:hover .menu-card__image img { transform: scale(1.05); }
+.menu-card__no-photo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #f8f5f0, #ede8e0);
+}
+
+/* Nummer Badge */
+.menu-card__nummer {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.65);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+    line-height: 1;
+}
+
+/* Name-Overlay am unteren Bildrand */
+.menu-card__name-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.0) 100%);
+    padding: 28px 10px 8px;
+    pointer-events: none;
+}
+.menu-card__name-overlay span {
+    display: block;
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.25;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Haus-Hit Badge */
+.menu-card__top-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #c0392b;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+    line-height: 1;
+}
+
+/* Body */
+.menu-card__body {
+    padding: 14px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.menu-card__title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.3;
+}
+.menu-card__desc {
+    font-size: 0.78rem;
+    color: #777;
+    line-height: 1.5;
+    margin: 0;
+    flex: 1;
+}
+.menu-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 4px;
+}
+.menu-card__preis {
+    font-family: var(--font-price);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-terracotta);
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+}
+.menu-card__preis .preis-chf {
+    font-size: 0.72em;
+    font-weight: 400;
+    opacity: 0.65;
+    margin-right: 3px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.menu-card__footer .btn-sm {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .menu-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+    .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .menu-tabs { gap: 4px; }
+    .menu-tab { padding: 8px 14px; font-size: 0.85rem; }
+}
+@media (max-width: 480px) {
+    .menu-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Allergen-Anzeige (Homepage Karten + Speisekarte) ─────────────────────── */
+.menu-card__allergene {
+    font-size: 0.7rem;
+    color: #999;
+    margin: 4px 0 0;
+    line-height: 1.4;
+}
+.menu-card__allergene-label,
+.speise-allergene__label {
+    font-weight: 700;
+    color: #c0392b;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    margin-right: 3px;
+}
+.speise-allergene {
+    font-size: 0.75rem;
+    color: #999;
+    margin: 6px 0 0;
+    line-height: 1.4;
+}
+
+.dekl-link {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #999;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.dekl-link:hover { color: #c0392b; }
+
+/* ── Nicht bestellbar – «Nur im Restaurant» Hinweis ──────────────────────── */
+.nur-restaurant {
+    display: inline-block;
+    font-size: 0.76rem;
+    color: #999;
+    font-style: italic;
+    padding: 4px 10px;
+    border: 1px dashed #ddd;
+    border-radius: 6px;
+    background: #fafafa;
+    margin-top: 6px;
+    letter-spacing: 0.01em;
+}
+
+/* ── Deklaration & Herkunft Seite ────────────────────────────────────────── */
+.dekl-section { background: #fff; }
+
+.dekl-intro {
+    font-size: 1rem;
+    color: #667784;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    padding: 20px 24px;
+    background: var(--color-cream);
+    border-left: 3px solid var(--color-terracotta);
+    border-radius: 0 10px 10px 0;
+}
+
+/* Deklaration Tabelle */
+.dekl-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    background: #fff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.dekl-table thead tr {
+    background: var(--color-green-dark);
+}
+
+.dekl-table thead th {
+    padding: 14px 20px;
+    text-align: left;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.dekl-table tbody tr {
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.15s;
+}
+.dekl-table tbody tr:last-child { border-bottom: none; }
+.dekl-table tbody tr:hover { background: var(--color-cream); }
+
+.dekl-table__produkt {
+    padding: 16px 20px;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-green-dark);
+    white-space: nowrap;
+    width: 160px;
+}
+
+.dekl-table__herkunft {
+    padding: 16px 20px;
+    font-size: 0.92rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.dekl-table__hinweis {
+    display: block;
+    font-size: 0.78rem;
+    color: #999;
+    font-style: italic;
+    margin-top: 3px;
+}
+
+.dekl-zusatz {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid #eee;
+    font-size: 0.95rem;
+    color: #667784;
+    line-height: 1.75;
+}
+.dekl-zusatz p { margin-bottom: 12px; }
+
+.dekl-allergen-section {
+    padding: 40px 0;
+    background: #fff8f0;
+    border-top: 1px solid #ffe4cc;
+}
+
+.dekl-allergen-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px 28px;
+    background: #fff;
+    border-radius: var(--radius-md);
+    border: 1px solid #ffe4cc;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.dekl-allergen-icon { font-size: 2rem; flex-shrink: 0; margin-top: 2px; }
+
+.dekl-allergen-box strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-green-dark);
+    margin-bottom: 6px;
+}
+
+.dekl-allergen-box p {
+    font-size: 0.9rem;
+    color: #667784;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .dekl-table__produkt { width: auto; white-space: normal; }
+    .dekl-allergen-box { flex-direction: column; gap: 12px; }
 }

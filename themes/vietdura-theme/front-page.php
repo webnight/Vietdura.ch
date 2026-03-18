@@ -31,8 +31,8 @@ if ( $hero_bg_image ) {
 
 // ── Kontakt aus Options (Single Source of Truth) ──────────────────────────────
 $vd_telefon_href  = vietdura_option( 'telefon_href',     '+41449409999' );
-$vd_whatsapp      = vietdura_option( 'whatsapp_url',     'https://wa.me/41449409999' );
-$vd_reservierung  = vietdura_option( 'reservierung_url', 'tel:+41449409999' );
+$vd_whatsapp      = vietdura_option( 'whatsapp_url',     'https://wa.me/41765798600' );
+$vd_reservierung  = vietdura_option( 'reservierung_url', home_url( '/reservierung/' ) );
 ?>
 
 <main class="site-main" id="main-content">
@@ -221,64 +221,142 @@ $tm_has_content = ! empty( $tm_speisen ) || ! empty( $tm_extras );
 
 
 <!-- ═══════════════════════════════════════════════════════
-     3. BELIEBTE GERICHTE + Online bestellen
+     3. VOLLSTÄNDIGE SPEISEKARTE MIT FOTOS
 ════════════════════════════════════════════════════════ -->
-<?php $speisen = vietdura_get_startseite_speisen(); ?>
-<?php if ( $speisen->have_posts() ) : ?>
-<section class="popular-dishes section section-alt" id="beliebte-speisen" aria-labelledby="speisen-titel">
+<?php
+$menu_kategorien = [
+    'kindermenu'  => 'Kindermenü',
+    'vorspeisen'  => 'Vorspeisen',
+    'salate'      => 'Salate',
+    'hauptgaenge' => 'Hauptgänge',
+    'suppen'      => 'Suppen',
+];
+$menu_alle_speisen = [];
+foreach ( array_keys( $menu_kategorien ) as $kat_slug ) {
+    $kat_term = get_term_by( 'slug', $kat_slug, 'speisen_kategorie' );
+    if ( ! $kat_term ) continue;
+    $kat_speisen = get_posts( [
+        'post_type'      => 'speise',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+        'tax_query'      => [ [ 'taxonomy' => 'speisen_kategorie', 'field' => 'term_id', 'terms' => $kat_term->term_id ] ],
+        'meta_key'       => 'menu_nummer',
+        'orderby'        => 'meta_value_num',
+        'order'          => 'ASC',
+    ] );
+    if ( ! empty( $kat_speisen ) ) {
+        $menu_alle_speisen[ $kat_slug ] = $kat_speisen;
+    }
+}
+?>
+<?php if ( ! empty( $menu_alle_speisen ) ) : ?>
+<section class="speisekarte-section section" id="speisekarte" aria-labelledby="speisekarte-titel">
     <div class="container">
         <div class="section-heading">
-            <span class="section-kicker">Direkt aus der Küche</span>
-            <h2 id="speisen-titel">Vietnamesisch essen in Tagelswangen – unsere beliebtesten Gerichte</h2>
-            <p>Frisch gekocht, authentisch gewürzt. Online bestellen zum Abholen oder bei uns geniessen.</p>
+            <span class="section-kicker">Frisch gekocht · Authentisch vietnamesisch</span>
+            <h2 id="speisekarte-titel">Unsere Speisekarte 2026</h2>
+            <p>Alle Gerichte werden täglich frisch zubereitet – aus Schweizer Zutaten und Original-Rezepten.</p>
         </div>
-        <div class="dish-grid">
-            <?php while ( $speisen->have_posts() ) : $speisen->the_post(); ?>
-            <?php
-                $post_id      = get_the_ID();
-                $preis        = vietdura_get_price( $post_id );
-                $badges       = vietdura_field( 'badges', $post_id );
-                $beschreibung = get_the_excerpt();
-            ?>
-            <article class="dish-card" itemscope itemtype="https://schema.org/MenuItem">
-                <div class="dish-image<?php echo has_post_thumbnail() ? ' dish-image--photo' : ''; ?>">
-                    <?php if ( has_post_thumbnail() ) : ?>
-                        <?php the_post_thumbnail( 'speise-card', [ 'alt' => esc_attr( get_the_title() ), 'loading' => 'lazy', 'itemprop' => 'image' ] ); ?>
-                    <?php endif; ?>
-                    <?php if ( ! empty( $badges ) ) : ?>
-                    <div class="dish-badges">
-                        <?php foreach ( (array) $badges as $badge ) : ?>
-                        <span class="dish-badge <?php echo esc_attr( vietdura_badge_class( $badge ) ); ?>">
-                            <?php echo esc_html( vietdura_badge_label( $badge ) ); ?>
-                        </span>
-                        <?php endforeach; ?>
-                    </div>
-                    <?php endif; ?>
-                </div>
-                <div class="dish-content">
-                    <h3 itemprop="name"><?php the_title(); ?></h3>
-                    <?php if ( $beschreibung ) : ?>
-                    <p itemprop="description"><?php echo esc_html( $beschreibung ); ?></p>
-                    <?php endif; ?>
-                    <div class="dish-footer">
-                        <?php if ( $preis ) : ?>
-                        <span class="dish-price"><?php echo esc_html( $preis ); ?></span>
+
+        <!-- Kategorie-Tabs -->
+        <div class="menu-tabs" role="tablist">
+            <?php $first = true; foreach ( $menu_kategorien as $slug => $label ) : ?>
+            <?php if ( ! isset( $menu_alle_speisen[ $slug ] ) ) continue; ?>
+            <button class="menu-tab<?php echo $first ? ' menu-tab--active' : ''; ?>"
+                    role="tab"
+                    data-tab="<?php echo esc_attr( $slug ); ?>"
+                    aria-selected="<?php echo $first ? 'true' : 'false'; ?>">
+                <?php echo esc_html( $label ); ?>
+                <span class="menu-tab-count"><?php echo count( $menu_alle_speisen[ $slug ] ); ?></span>
+            </button>
+            <?php $first = false; endforeach; ?>
+        </div>
+
+        <!-- Kategorie-Panels -->
+        <?php $first = true; foreach ( $menu_kategorien as $slug => $label ) : ?>
+        <?php if ( ! isset( $menu_alle_speisen[ $slug ] ) ) continue; ?>
+        <div class="menu-panel<?php echo $first ? ' menu-panel--active' : ''; ?>"
+             id="menu-panel-<?php echo esc_attr( $slug ); ?>"
+             role="tabpanel"
+             data-panel="<?php echo esc_attr( $slug ); ?>">
+            <div class="menu-grid">
+                <?php foreach ( $menu_alle_speisen[ $slug ] as $speise ) :
+                    $post_id   = $speise->ID;
+                    $nummer    = get_post_meta( $post_id, 'menu_nummer', true );
+                    $preis     = get_post_meta( $post_id, 'preis', true );
+                    $highlight = get_post_meta( $post_id, 'highlight', true );
+                    $thumb_url = get_the_post_thumbnail_url( $post_id, 'medium' );
+                    $excerpt   = wp_trim_words( $speise->post_excerpt ?: $speise->post_content, 18 );
+                    $allergene        = get_post_meta( $post_id, 'allergene', true );
+                    $nicht_bestellbar = get_post_meta( $post_id, 'nicht_bestellbar', true );
+                ?>
+                <article class="menu-card<?php echo $highlight ? ' menu-card--highlight' : ''; ?>"
+                         itemscope itemtype="https://schema.org/MenuItem">
+                    <div class="menu-card__image">
+                        <?php if ( $thumb_url ) : ?>
+                        <img src="<?php echo esc_url( $thumb_url ); ?>"
+                             alt="<?php echo esc_attr( $speise->post_title ); ?>"
+                             loading="lazy"
+                             itemprop="image">
+                        <?php else : ?>
+                        <div class="menu-card__no-photo">🍜</div>
                         <?php endif; ?>
-                        <button class="btn btn-sm btn-primary add-to-cart-btn"
-                            data-post-id="<?php echo esc_attr( $post_id ); ?>"
-                            data-title="<?php echo esc_attr( get_the_title() ); ?>"
-                            data-price="<?php echo esc_attr( vietdura_field( 'preis', $post_id ) ); ?>"
-                            aria-label="<?php echo esc_attr( get_the_title() ); ?> bestellen">
-                            + Bestellen
-                        </button>
+                        <?php if ( $nummer !== '' ) : ?>
+                        <span class="menu-card__nummer"><?php echo esc_html( $nummer ); ?></span>
+                        <?php endif; ?>
+                        <?php if ( $highlight ) : ?>
+                        <span class="menu-card__top-badge">⭐ Haus-Hit</span>
+                        <?php endif; ?>
+                        <div class="menu-card__name-overlay">
+                            <span><?php echo esc_html( $speise->post_title ); ?></span>
+                        </div>
                     </div>
-                </div>
-            </article>
-            <?php endwhile; wp_reset_postdata(); ?>
+                    <div class="menu-card__body">
+                        <h3 class="menu-card__title" itemprop="name">
+                            <?php echo esc_html( $speise->post_title ); ?>
+                        </h3>
+                        <?php if ( $excerpt ) : ?>
+                        <p class="menu-card__desc" itemprop="description">
+                            <?php echo esc_html( $excerpt ); ?>
+                        </p>
+                        <?php endif; ?>
+                        <?php if ( $allergene ) : ?>
+                        <p class="menu-card__allergene">
+                            <span class="menu-card__allergene-label">Enthält:</span>
+                            <?php echo esc_html( $allergene ); ?>
+                        </p>
+                        <?php endif; ?>
+                        <div class="menu-card__footer">
+                            <?php if ( $preis ) : ?>
+                            <span class="menu-card__preis" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <span itemprop="price" content="<?php echo esc_attr( $preis ); ?>"><span class="preis-chf">CHF</span> <?php echo esc_html( $preis ); ?></span>
+                            </span>
+                            <?php endif; ?>
+                            <?php if ( $nicht_bestellbar ) : ?>
+                            <span class="nur-restaurant">🏮 Nur im Restaurant</span>
+                            <?php else : ?>
+                            <button class="btn btn-sm btn-primary add-to-cart-btn"
+                                data-post-id="<?php echo esc_attr( $post_id ); ?>"
+                                data-title="<?php echo esc_attr( $speise->post_title ); ?>"
+                                data-price="<?php echo esc_attr( $preis ); ?>"
+                                aria-label="<?php echo esc_attr( $speise->post_title ); ?> bestellen">
+                                Bestellen
+                            </button>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </article>
+                <?php endforeach; ?>
+            </div>
         </div>
+        <?php $first = false; endforeach; ?>
+
         <div class="section-cta">
             <a href="<?php echo esc_url( home_url( '/speisekarte/' ) ); ?>" class="btn btn-outline">
-                Alle Gerichte ansehen &amp; online bestellen →
+                Zur vollständigen Speisekarte &amp; Online bestellen →
+            </a>
+            <a href="<?php echo esc_url( home_url( '/deklaration-herkunft/' ) ); ?>" class="dekl-link">
+                Deklaration &amp; Herkunft unserer Zutaten
             </a>
         </div>
     </div>

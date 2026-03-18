@@ -79,10 +79,10 @@ function vd_page_kontakt(): void {
     vd_field( 'PLZ & Ort',           'plz_ort',          '8317 Tagelswangen ZH' );
     vd_field( 'Telefon (Anzeige)',   'telefon',           '+41 44 940 99 99' );
     vd_field( 'Telefon (Link)',       'telefon_href',      '+41449409999', 'Nur Zahlen, kein Leerzeichen' );
-    vd_field( 'WhatsApp URL',         'whatsapp_url',      'https://wa.me/41449409999' );
+    vd_field( 'WhatsApp URL',         'whatsapp_url',      'https://wa.me/41765798600' );
     vd_field( 'E-Mail',               'email',             'info@vietdura.ch' );
     vd_field( 'E-Mail Catering',      'email_catering',    'rh@vietdura.ch' );
-    vd_field( 'Reservierungs-URL',    'reservierung_url',  'tel:+41449409999' );
+    vd_field( 'Reservierungs-URL',    'reservierung_url',  '/reservierung/' );
     vd_field( 'Google Maps URL',      'maps_url',          'https://maps.google.com/...' );
     vd_field( 'Parkplatz-Info',       'parkplatz_info',    'Kostenlose Parkplätze gegenüber' );
     echo '</table>';

@@ -184,7 +184,7 @@ class Ai1wmve_Reset_Database {
 	 * @return $this
 	 */
 	protected function drop_wp_tables() {
-		$mysql = Ai1wm_Database_Utility::create_client();
+		$mysql = Ai1wm_Database_Utility::get_client();
 
 		// Include table prefixes
 		if ( ai1wm_table_prefix() ) {

@@ -45,7 +45,7 @@ if ( ! class_exists( 'Ai1wmve_Schedules_Controller' ) ) {
 					$event  = $events->find_or_new( $event_id );
 
 					// List DB tables with default WP table prefix
-					$mysql = Ai1wm_Database_Utility::create_client();
+					$mysql = Ai1wm_Database_Utility::get_client();
 
 					// Include table prefixes
 					if ( ai1wm_table_prefix() ) {
@@ -59,7 +59,7 @@ if ( ! class_exists( 'Ai1wmve_Schedules_Controller' ) ) {
 					$exclude_tables = $mysql->get_tables();
 
 					// List db tables without WP default table prefix
-					$mysql = Ai1wm_Database_Utility::create_client();
+					$mysql = Ai1wm_Database_Utility::get_client();
 
 					// Exclude default wp table prefix
 					if ( ai1wm_table_prefix() ) {

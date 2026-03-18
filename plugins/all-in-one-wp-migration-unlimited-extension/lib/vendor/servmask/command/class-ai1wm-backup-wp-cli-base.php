@@ -160,7 +160,7 @@ if ( defined( 'WP_CLI' ) && ! class_exists( 'Ai1wm_Backup_WP_CLI_Base' ) ) {
 			} else {
 				// Exclude some of the tables
 				if ( isset( $assoc_args['exclude-tables'] ) ) {
-					$mysql = Ai1wm_Database_Utility::create_client();
+					$mysql = Ai1wm_Database_Utility::get_client();
 
 					// Include table prefixes
 					if ( ai1wm_table_prefix() ) {
@@ -221,7 +221,7 @@ if ( defined( 'WP_CLI' ) && ! class_exists( 'Ai1wm_Backup_WP_CLI_Base' ) ) {
 
 				// Include additional tables
 				if ( isset( $assoc_args['include-tables'] ) ) {
-					$mysql = Ai1wm_Database_Utility::create_client();
+					$mysql = Ai1wm_Database_Utility::get_client();
 
 					// Include table prefixes
 					if ( ai1wm_table_prefix() ) {

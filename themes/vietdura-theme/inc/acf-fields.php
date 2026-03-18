@@ -111,6 +111,73 @@ add_action( 'acf/init', function() {
                 'conditional_logic' => [ [ [ 'field' => 'field_vd_speise_tages_menu', 'operator' => '==', 'value' => '1' ] ] ],
                 'menu_order'   => 7,
             ],
+            [
+                'key'          => 'field_vd_speise_nicht_bestellbar',
+                'label'        => '🔒 Nicht online bestellbar',
+                'name'         => 'nicht_bestellbar',
+                'type'         => 'true_false',
+                'instructions' => 'Aktivieren → kein Bestell-Button, stattdessen «Nur im Restaurant» Hinweis.',
+                'default_value' => 0,
+                'ui'           => 1,
+                'ui_on_text'   => 'Gesperrt',
+                'ui_off_text'  => 'Bestellbar',
+                'wrapper'      => [ 'width' => '50' ],
+                'menu_order'   => 8,
+            ],
+        ],
+    ] );
+} );
+
+
+// ── Getränke: Feldgruppe ──────────────────────────────────────────────────────
+add_action( 'acf/init', function() {
+    if ( ! function_exists( 'acf_add_local_field_group' ) ) return;
+    acf_add_local_field_group( [
+        'key'      => 'group_vd_getraenk_details',
+        'title'    => 'Getränk Details',
+        'location' => [ [ [ 'param' => 'post_type', 'operator' => '==', 'value' => 'getraenk' ] ] ],
+        'menu_order' => 10,
+        'fields'   => [
+            [
+                'key'         => 'field_vd_getraenk_preis',
+                'label'       => 'Preis (CHF)',
+                'name'        => 'preis',
+                'type'        => 'text',
+                'placeholder' => '4.50',
+                'wrapper'     => [ 'width' => '33' ],
+                'menu_order'  => 1,
+            ],
+            [
+                'key'         => 'field_vd_getraenk_volumen',
+                'label'       => 'Volumen / Grösse',
+                'name'        => 'volumen',
+                'type'        => 'text',
+                'placeholder' => '3 dl',
+                'wrapper'     => [ 'width' => '33' ],
+                'menu_order'  => 2,
+            ],
+            [
+                'key'         => 'field_vd_getraenk_reihenfolge',
+                'label'       => 'Reihenfolge',
+                'name'        => 'reihenfolge',
+                'type'        => 'number',
+                'default_value' => 10,
+                'wrapper'     => [ 'width' => '34' ],
+                'menu_order'  => 3,
+            ],
+            [
+                'key'          => 'field_vd_getraenk_nicht_bestellbar',
+                'label'        => '🔒 Nicht online bestellbar',
+                'name'         => 'nicht_bestellbar',
+                'type'         => 'true_false',
+                'instructions' => 'Aktivieren → kein Bestell-Button, stattdessen «Nur im Restaurant» Hinweis.',
+                'default_value' => 0,
+                'ui'           => 1,
+                'ui_on_text'   => 'Gesperrt',
+                'ui_off_text'  => 'Bestellbar',
+                'wrapper'      => [ 'width' => '50' ],
+                'menu_order'   => 4,
+            ],
         ],
     ] );
 } );

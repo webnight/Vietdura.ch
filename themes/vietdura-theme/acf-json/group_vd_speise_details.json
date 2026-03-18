@@ -9,8 +9,8 @@
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "20",
                 "class": "",
@@ -29,8 +29,8 @@
             "aria-label": "",
             "type": "text",
             "instructions": "Nur bei Speisen ohne Varianten. z.B. \"24.50\"",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "30",
                 "class": "",
@@ -49,8 +49,8 @@
             "aria-label": "",
             "type": "checkbox",
             "instructions": "",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "50",
                 "class": "",
@@ -78,8 +78,8 @@
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "50",
                 "class": "",
@@ -98,8 +98,8 @@
             "aria-label": "",
             "type": "number",
             "instructions": "",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "25",
                 "class": "",
@@ -120,8 +120,8 @@
             "aria-label": "",
             "type": "true_false",
             "instructions": "Speise wird im Empfehlungs-Abschnitt auf der Startseite angezeigt.",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "50",
                 "class": "",
@@ -135,13 +135,13 @@
         },
         {
             "key": "field_vd_speise_tages_menu",
-            "label": "Im Tagesmenu",
+            "label": "🍜 Im Tagesmenu",
             "name": "tages_menu",
             "aria-label": "",
             "type": "true_false",
             "instructions": "Speise erscheint heute im Mittagsmenu auf der Website.",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "50",
                 "class": "",
@@ -160,7 +160,7 @@
             "aria-label": "",
             "type": "text",
             "instructions": "Sonderpreis für das Tagesmenu. Leer = normaler Preis wird verwendet.",
-            "required": false,
+            "required": 0,
             "conditional_logic": [
                 [
                     {
@@ -180,6 +180,26 @@
             "maxlength": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_vd_speise_nicht_bestellbar",
+            "label": "🔒 Nicht online bestellbar",
+            "name": "nicht_bestellbar",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Aktivieren → kein Bestell-Button, Hinweis «Nur im Restaurant» erscheint.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Gesperrt",
+            "ui_off_text": "Bestellbar",
+            "message": ""
         }
     ],
     "location": [
@@ -201,5 +221,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1773623938
+    "modified": 1773791221
 }

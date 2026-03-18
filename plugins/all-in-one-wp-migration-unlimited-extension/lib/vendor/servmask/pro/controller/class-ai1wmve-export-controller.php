@@ -66,7 +66,7 @@ if ( ! class_exists( 'Ai1wmve_Export_Controller' ) ) {
 		}
 
 		public static function exclude_db_tables() {
-			$mysql = Ai1wm_Database_Utility::create_client();
+			$mysql = Ai1wm_Database_Utility::get_client();
 
 			// Include table prefixes
 			if ( ai1wm_table_prefix() ) {
@@ -86,7 +86,7 @@ if ( ! class_exists( 'Ai1wmve_Export_Controller' ) ) {
 		}
 
 		public static function include_db_tables() {
-			$mysql = Ai1wm_Database_Utility::create_client();
+			$mysql = Ai1wm_Database_Utility::get_client();
 
 			// Exclude default wp table prefix
 			if ( ai1wm_table_prefix() ) {

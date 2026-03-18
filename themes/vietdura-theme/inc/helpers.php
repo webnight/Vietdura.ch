@@ -116,7 +116,9 @@ function vietdura_render_menu_item( int $post_id ): void {
 	$preis        = vietdura_get_price( $post_id );
 	$badges       = vietdura_field( 'badges', $post_id );
 	$beschreibung = get_the_excerpt();
-	$has_image    = has_post_thumbnail();
+	$allergene        = get_post_meta( $post_id, 'allergene', true );
+	$nicht_bestellbar = get_post_meta( $post_id, 'nicht_bestellbar', true );
+	$has_image        = has_post_thumbnail();
 	?>
 	<article class="speise-card">
 		<div class="speise-card-image<?php echo $has_image ? '' : ' speise-card-image--empty'; ?>">
@@ -137,21 +139,38 @@ function vietdura_render_menu_item( int $post_id ): void {
 			<div class="speise-card-top">
 				<h3><?php the_title(); ?></h3>
 				<?php if ( $preis ) : ?>
-					<span class="speise-card-price"><?php echo esc_html( $preis ); ?></span>
+					<span class="speise-card-price"><?php
+					// CHF-Prefix mit kleinerem Span ausgeben
+					if ( str_starts_with( $preis, 'CHF ' ) ) {
+						echo '<span class="preis-chf">CHF</span> ' . esc_html( substr( $preis, 4 ) );
+					} else {
+						echo esc_html( $preis );
+					}
+				?></span>
 				<?php endif; ?>
 			</div>
 			<?php if ( $beschreibung ) : ?>
 				<p><?php echo esc_html( $beschreibung ); ?></p>
 			<?php endif; ?>
+			<?php if ( $allergene ) : ?>
+				<p class="speise-allergene">
+					<span class="speise-allergene__label">Enthält:</span>
+					<?php echo esc_html( $allergene ); ?>
+				</p>
+			<?php endif; ?>
 			<?php if ( $preis ) : ?>
-				<button class="vd-add-btn"
-					data-cart-add
-					data-post-id="<?php echo esc_attr( $post_id ); ?>"
-					data-type="speise"
-					data-context="speisekarte"
-					aria-label="<?php echo esc_attr( get_the_title() ); ?> in den Warenkorb">
-					+ Bestellen
-				</button>
+				<?php if ( $nicht_bestellbar ) : ?>
+					<span class="nur-restaurant">🏮 Nur im Restaurant</span>
+				<?php else : ?>
+					<button class="vd-add-btn"
+						data-cart-add
+						data-post-id="<?php echo esc_attr( $post_id ); ?>"
+						data-type="speise"
+						data-context="speisekarte"
+						aria-label="<?php echo esc_attr( get_the_title() ); ?> in den Warenkorb">
+						+ Bestellen
+					</button>
+				<?php endif; ?>
 			<?php endif; ?>
 		</div>
 	</article>
@@ -166,9 +185,10 @@ function vietdura_render_menu_item( int $post_id ): void {
  * @param int $post_id
  */
 function vietdura_render_getraenk_item( int $post_id ): void {
-	$preis        = vietdura_get_price( $post_id );
-	$volumen      = vietdura_field( 'volumen', $post_id );
-	$beschreibung = get_the_excerpt();
+	$preis            = vietdura_get_price( $post_id );
+	$volumen          = vietdura_field( 'volumen', $post_id );
+	$beschreibung     = get_the_excerpt();
+	$nicht_bestellbar = get_post_meta( $post_id, 'nicht_bestellbar', true );
 	?>
 	<article class="getraenk-item">
 		<div class="getraenk-item-header">
@@ -184,13 +204,17 @@ function vietdura_render_getraenk_item( int $post_id ): void {
 			<p class="getraenk-item-desc"><?php echo esc_html( $beschreibung ); ?></p>
 		<?php endif; ?>
 		<?php if ( $preis ) : ?>
-			<button class="vd-add-btn"
-				data-cart-add
-				data-post-id="<?php echo esc_attr( $post_id ); ?>"
-				data-type="getraenk"
-				aria-label="<?php echo esc_attr( get_the_title() ); ?> in den Warenkorb">
-				+ Bestellen
-			</button>
+			<?php if ( $nicht_bestellbar ) : ?>
+				<span class="nur-restaurant">🏮 Nur im Restaurant</span>
+			<?php else : ?>
+				<button class="vd-add-btn"
+					data-cart-add
+					data-post-id="<?php echo esc_attr( $post_id ); ?>"
+					data-type="getraenk"
+					aria-label="<?php echo esc_attr( get_the_title() ); ?> in den Warenkorb">
+					+ Bestellen
+				</button>
+			<?php endif; ?>
 		<?php endif; ?>
 	</article>
 	<?php

@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // ==================
 // = Plugin Version =
 // ==================
-define( 'AI1WMUE_VERSION', '2.82' );
+define( 'AI1WMUE_VERSION', '2.83' );
 
 // ===============
 // = Plugin Name =
@@ -77,7 +77,7 @@ define( 'AI1WMUE_RETENTION_NAME', 'retention.json' );
 // ===============================
 // = Minimal Base Plugin Version =
 // ===============================
-define( 'AI1WMUE_MIN_AI1WM_VERSION', '7.102' );
+define( 'AI1WMUE_MIN_AI1WM_VERSION', '7.103' );
 
 // ===============
 // = Purchase ID =

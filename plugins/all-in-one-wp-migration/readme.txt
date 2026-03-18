@@ -4,7 +4,7 @@ Tags: backup, clone, migrate, move-wordpress, export-import
 Requires at least: 3.3
 Tested up to: 6.9
 Requires PHP: 5.3
-Stable tag: 7.102
+Stable tag: 7.103
 License: GPLv3 or later
 
 Trusted by 60M+ sites: The gold standard for WordPress migration and backup. Migrate, backup, and restore your WordPress site with one click.
@@ -164,6 +164,28 @@ All-in-One WP Migration is in full compliance with General Data Protection Regul
 See our [GDPR Compliant Privacy Policy here](https://www.iubenda.com/privacy-policy/946881).
 
 == Changelog ==
+= 7.103 =
+**Added**
+
+* MariaDB-specific database driver with support for INET4, INET6, UUID, XMLTYPE, and VECTOR column types
+* Server version parsing utility for improved database version detection
+
+**Fixed**
+
+* Path traversal vulnerability in download_file() that could allow arbitrary file reads
+* Path traversal validation when extracting files from archives
+* Stale backups path option after server migration now auto-resets to default
+
+**Improved**
+
+* Database export and import refactored for better separation of concerns — column types, column options, table options, and collations are now handled independently
+* Expanded collation downgrade support including utf8mb4_0900_as_ci, utf8mb4_0900_as_cs, utf8mb3_* variants
+* MariaDB-specific table options now properly handled (Aria engine, page compression, system versioning, encryption)
+* Additional MariaDB storage engines (S3, ColumnStore, Spider, CONNECT, Mroonga) now convert to InnoDB on import
+* Social share buttons replaced with lightweight static links (removed third-party JavaScript from Facebook, Twitter, and YouTube)
+* Cached database server info calls for better performance
+* functions.php now loads before constants.php for correct initialization order
+
 = 7.102 =
 **Added**
 

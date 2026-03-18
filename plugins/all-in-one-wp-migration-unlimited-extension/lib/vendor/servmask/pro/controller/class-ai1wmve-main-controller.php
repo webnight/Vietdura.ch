@@ -92,7 +92,7 @@ if ( ! class_exists( 'Ai1wmve_Main_Controller' ) ) {
 		 * @throws Ai1wmve_Error_Exception
 		 */
 		private function ai1wve_check_if_constants_are_defined() {
-			$message = __( '%s constant must be defined!', $this->plugin_name );
+			$message = __( '%s constant must be defined!', $this->plugin_name ? $this->plugin_name : 'default' );
 
 			if ( ! defined( $constant = $this->plugin_prefix . '_PLUGIN_BASENAME' ) ) {
 				throw new Ai1wmve_Error_Exception( sprintf( $message, $constant ) );

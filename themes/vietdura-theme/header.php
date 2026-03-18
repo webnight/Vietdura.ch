@@ -29,12 +29,11 @@
                 'fallback_cb'    => false,
             ] );
             ?>
-            <?php $reservierung_url = get_option( 'vd_reservierung_url', '#' ); ?>
-            <a href="<?php echo esc_url( $reservierung_url ); ?>" class="header-cta header-cta--menu">Reservation</a>
+            <?php $reservierung_url = vietdura_option( 'reservierung_url', home_url( '/reservierung/' ) ); ?>
+            <a href="<?php echo esc_url( $reservierung_url ); ?>" class="header-cta header-cta--menu">Reservieren</a>
         </nav>
 
-        <?php $reservierung_url = get_option( 'vd_reservierung_url', '#' ); ?>
-        <a href="<?php echo esc_url( $reservierung_url ); ?>" class="header-cta header-cta--desktop">Reservation</a>
+        <a href="<?php echo esc_url( $reservierung_url ); ?>" class="header-cta header-cta--desktop">Reservieren</a>
 
         <button id="vd-cart-toggle" class="vd-cart-btn" aria-label="Warenkorb öffnen">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

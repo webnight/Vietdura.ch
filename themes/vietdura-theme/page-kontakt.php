@@ -10,13 +10,13 @@ $vd_adresse          = vietdura_option( 'adresse',          'Zürcherstrasse 48'
 $vd_plz_ort          = vietdura_option( 'plz_ort',          '8317 Tagelswangen ZH' );
 $vd_telefon          = vietdura_option( 'telefon',          '+41 44 940 99 99' );
 $vd_telefon_href     = vietdura_option( 'telefon_href',      '+41449409999' );
-$vd_whatsapp         = vietdura_option( 'whatsapp_url',      'https://wa.me/41449409999' );
+$vd_whatsapp         = vietdura_option( 'whatsapp_url',      'https://wa.me/41765798600' );
 $vd_email            = vietdura_option( 'email',            'info@vietdura.ch' );
 $vd_email_catering   = vietdura_option( 'email_catering',   'rh@vietdura.ch' );
 $vd_maps_url         = vietdura_option( 'maps_url',         'https://maps.google.com/?q=Zürcherstrasse+48+Tagelswangen+ZH' );
 $vd_maps_embed       = vietdura_option( 'maps_embed',       '' );
 $vd_parkplatz        = vietdura_option( 'parkplatz_info',   'Kostenlose Parkplätze gegenüber (signalisiert)' );
-$vd_reservierung     = vietdura_option( 'reservierung_url', 'tel:+41449409999' );
+$vd_reservierung     = vietdura_option( 'reservierung_url', home_url( '/reservierung/' ) );
 $vd_oeffnungszeiten  = vietdura_option( 'oeffnungszeiten',  [] );
 $vd_oeffnung_hinweis = vietdura_option( 'oeffnung_hinweis', 'Anrufe & WhatsApp nur während Öffnungszeiten' );
 
